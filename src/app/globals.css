@@ -5,6 +5,7 @@
 :root {
   --navy: #01011e;
   --gold: #f7be79;
+  --white: #ffffff;
 }
 
 * {
@@ -24,6 +25,10 @@ body {
   direction: rtl;
   text-align: right;
 }
+
+/* ========================================
+   COLOR DISTRIBUTION: 65% Navy, 20% Gold, 15% White
+   ======================================== */
 
 /* Swiper custom styles */
 .swiper {
@@ -47,7 +52,89 @@ body {
   background-color: #f7be79;
 }
 
-/* Overlapping Panel Styles */
+/* ========================================
+   GLASS GLARE HOVER EFFECT
+   ======================================== */
+.glass-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 25%,
+    rgba(255, 255, 255, 0.6) 45%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.6) 55%,
+    transparent 75%,
+    transparent 100%
+  );
+  transition: left 0.6s ease;
+  z-index: 10;
+}
+
+.glass-card:hover::before {
+  left: 100%;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Glass card with navy background */
+.glass-card-navy {
+  position: relative;
+  background: rgba(1, 1, 30, 0.85);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.glass-card-navy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 25%,
+    rgba(247, 190, 121, 0.3) 45%,
+    rgba(247, 190, 121, 0.5) 50%,
+    rgba(247, 190, 121, 0.3) 55%,
+    transparent 75%,
+    transparent 100%
+  );
+  transition: left 0.6s ease;
+  z-index: 10;
+}
+
+.glass-card-navy:hover::before {
+  left: 100%;
+}
+
+.glass-card-navy:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(247, 190, 121, 0.2);
+}
+
+/* ========================================
+   OVERLAPPING PANEL STYLES
+   ======================================== */
 .panel-navy {
   @apply bg-navy relative z-20;
 }
@@ -128,7 +215,18 @@ body {
   }
 }
 
-/* Scrollbar styling */
+/* ========================================
+   VERTICAL TEXT STYLING
+   ======================================== */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -146,7 +244,9 @@ body {
   background: #e8a55a;
 }
 
-/* Button styles */
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
 .btn-gold {
   @apply bg-gold text-navy font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:shadow-gold/30;
 }
@@ -159,32 +259,55 @@ body {
   @apply bg-navy text-white font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-navy-400;
 }
 
-/* Section padding */
+.btn-white {
+  @apply bg-white text-navy font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gray-100;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
 .section-padding {
   @apply py-16 md:py-24;
 }
 
-/* Container */
 .container-custom {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-/* Underline accent */
 .underline-gold {
   @apply w-16 h-1 bg-gold;
 }
 
-/* Feature checkmark */
+.underline-navy {
+  @apply w-16 h-1 bg-navy;
+}
+
 .feature-check {
   @apply inline-flex items-center justify-center w-6 h-6 bg-gold text-navy rounded-full text-sm font-bold flex-shrink-0;
 }
 
-/* Floating WhatsApp Button */
+/* ========================================
+   FLOATING BUTTONS
+   ======================================== */
 .whatsapp-float {
   @apply fixed bottom-6 left-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110;
 }
 
-/* Back to top button */
 .back-to-top {
   @apply fixed bottom-6 left-24 z-50 w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center shadow-lg hover:bg-gold-500 transition-all duration-300 hover:scale-110;
+}
+
+/* ========================================
+   SERVICE CARD ICON
+   ======================================== */
+.service-icon {
+  @apply w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center mb-4 transition-all duration-300;
+}
+
+.glass-card:hover .service-icon {
+  @apply bg-gold;
+}
+
+.glass-card:hover .service-icon svg {
+  @apply text-navy;
 }
