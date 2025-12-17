@@ -16,21 +16,21 @@ const slides = [
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
     title: "فحم نشارة خشب طبيعي 100%",
-    subtitle: "جودة عالية للشواء والمطاعم",
+    subtitle: "بدون مواد كيميائية، بدون دخان، بدون رائحة",
   },
   {
     id: 2,
     image:
       "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80",
-    title: "بدون دخان، بدون رائحة",
-    subtitle: "تجربة شواء نظيفة ومميزة",
+    title: "تجربة شواء غير تقليدية",
+    subtitle: "حرارة مستقرة وعالية لمدة 5-6 ساعات",
   },
   {
     id: 3,
     image:
       "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1920&q=80",
-    title: "احتراق طويل وحرارة ثابتة",
-    subtitle: "الخيار الأمثل للمحترفين",
+    title: "الثورة البيئية والاقتصادية",
+    subtitle: "فحم صديق للبيئة مصنوع من نفايات الخشب المُعاد تدويرها",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="home" className="relative h-screen w-full">
+    <section id="home" className="relative min-h-screen w-full">
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
@@ -53,7 +53,7 @@ export default function HeroSlider() {
         }}
         loop={true}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="h-full w-full"
+        className="h-screen w-full"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id}>
@@ -84,7 +84,7 @@ export default function HeroSlider() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="hero-content-box max-w-2xl mx-auto text-center"
+                    className="hero-content-box max-w-3xl mx-auto text-center"
                   >
                     <motion.h1
                       initial={{ opacity: 0, y: 20 }}
@@ -125,6 +125,14 @@ export default function HeroSlider() {
 
       {/* Custom Pagination */}
       <div className="custom-pagination absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-10" />
+
+      {/* Overlapping Gold Panel at Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <div className="relative">
+          {/* Gold accent strip */}
+          <div className="h-2 bg-gold"></div>
+        </div>
+      </div>
 
       {/* Scroll Indicator */}
       <motion.div

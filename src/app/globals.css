@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  font-family: var(--font-cairo), sans-serif;
+  font-family: "Cairo", sans-serif;
   background-color: var(--navy);
   color: #ffffff;
   direction: rtl;
@@ -47,11 +47,32 @@ body {
   background-color: #f7be79;
 }
 
+/* Overlapping Panel Styles */
+.panel-navy {
+  @apply bg-navy relative z-20;
+}
+
+.panel-gold {
+  @apply bg-gold relative z-10;
+}
+
+/* Dot pattern background */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(1, 1, 30, 0.12) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+/* World map dot pattern for footer */
+.map-dot-pattern {
+  background-image: radial-gradient(circle, rgba(1, 1, 30, 0.08) 2px, transparent 2px);
+  background-size: 15px 15px;
+}
+
 /* Hero content box with golden border */
 .hero-content-box {
   border: 2px solid #f7be79;
   padding: 2rem;
-  background: rgba(1, 1, 30, 0.8);
+  background: rgba(1, 1, 30, 0.85);
   backdrop-filter: blur(10px);
 }
 
@@ -71,23 +92,40 @@ body {
   opacity: 1;
 }
 
-/* Footer stacking layers */
-.footer-layer {
-  position: absolute;
-  inset: 0;
-  background: rgba(247, 190, 121, 0.03);
-  transform-origin: bottom;
+/* Split panel layout */
+.split-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
 }
 
-.footer-layer:nth-child(1) {
-  transform: translateY(-40px);
-  border-radius: 30px 30px 0 0;
+@media (min-width: 1024px) {
+  .split-panel {
+    grid-template-columns: 60% 40%;
+  }
+
+  .split-panel-reverse {
+    grid-template-columns: 40% 60%;
+  }
 }
 
-.footer-layer:nth-child(2) {
-  transform: translateY(-20px);
-  border-radius: 20px 20px 0 0;
-  background: rgba(247, 190, 121, 0.05);
+/* Elevated panel effect - shadow on left for RTL */
+.elevated-panel {
+  box-shadow: 20px 0 60px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 10;
+}
+
+/* Footer split panel */
+.footer-split {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .footer-split {
+    grid-template-columns: 35% 65%;
+  }
 }
 
 /* Scrollbar styling */
@@ -117,6 +155,10 @@ body {
   @apply border-2 border-gold text-gold font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gold hover:text-navy;
 }
 
+.btn-navy {
+  @apply bg-navy text-white font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-navy-400;
+}
+
 /* Section padding */
 .section-padding {
   @apply py-16 md:py-24;
@@ -125,4 +167,24 @@ body {
 /* Container */
 .container-custom {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Underline accent */
+.underline-gold {
+  @apply w-16 h-1 bg-gold;
+}
+
+/* Feature checkmark */
+.feature-check {
+  @apply inline-flex items-center justify-center w-6 h-6 bg-gold text-navy rounded-full text-sm font-bold flex-shrink-0;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  @apply fixed bottom-6 left-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110;
+}
+
+/* Back to top button */
+.back-to-top {
+  @apply fixed bottom-6 left-24 z-50 w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center shadow-lg hover:bg-gold-500 transition-all duration-300 hover:scale-110;
 }

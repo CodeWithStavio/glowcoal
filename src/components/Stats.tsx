@@ -9,38 +9,47 @@ const stats = [
     number: 500,
     suffix: "+",
     label: "عميل راضي",
-    icon: "👥",
   },
   {
     id: 2,
     number: 1000,
     suffix: "+",
     label: "طن إنتاج سنوي",
-    icon: "📦",
   },
   {
     id: 3,
     number: 15,
     suffix: "+",
     label: "دولة نصدر إليها",
-    icon: "🌍",
   },
   {
     id: 4,
     number: 10,
     suffix: "+",
     label: "سنوات خبرة",
-    icon: "⭐",
   },
 ];
 
-function Counter({
-  target,
-  suffix,
-}: {
-  target: number;
-  suffix: string;
-}) {
+const benefits = [
+  {
+    title: "حماية الصحة",
+    description: "يقلل التلوث الهوائي، مما يدعم صحة مستدامة ويخفض التكاليف الطبية.",
+  },
+  {
+    title: "توفير طاقة فعال",
+    description: "احتراق طويل الأمد يعني استهلاكاً أقل وتوفيراً مالياً يصل إلى 30-40%.",
+  },
+  {
+    title: "اقتصاد أخضر",
+    description: "يعيد تدوير النفايات، يخلق فرص عمل، ويحافظ على موارد الغابات.",
+  },
+  {
+    title: "جودة فائقة",
+    description: "يُفضله الشيفات لنقائه، مما يرفع قيمة الوجبات في المطاعم والمنازل.",
+  },
+];
+
+function Counter({ target, suffix }: { target: number; suffix: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -67,7 +76,7 @@ function Counter({
   }, [isInView, target]);
 
   return (
-    <span ref={ref} className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold">
+    <span ref={ref} className="text-4xl md:text-5xl font-bold text-gold">
       {count}
       {suffix}
     </span>
@@ -76,54 +85,118 @@ function Counter({
 
 export default function Stats() {
   return (
-    <section id="stats" className="section-padding relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-navy/90" />
+    <section id="stats" className="relative">
+      {/* Stats Counter Section - Navy */}
+      <div className="bg-navy py-20 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80')`,
+            }}
+          />
+        </div>
+
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-gold text-lg font-medium mb-2 block">
+              إنجازاتنا
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              أرقام تتحدث عنا
+            </h2>
+            <div className="underline-gold mx-auto" />
+          </motion.div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="bg-navy-400/40 border border-gold/20 rounded-xl p-8 hover:border-gold/50 transition-all duration-300 hover:-translate-y-2">
+                  <Counter target={stat.number} suffix={stat.suffix} />
+                  <p className="text-white text-lg mt-4">{stat.label}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="container-custom relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-gold text-lg font-medium mb-2 block">
-            إنجازاتنا
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            أرقام تتحدث عنا
-          </h2>
-          <div className="w-24 h-1 bg-gold mx-auto" />
-        </motion.div>
+      {/* Benefits Section - Split Panel */}
+      <div className="split-panel">
+        {/* Gold Panel with benefits */}
+        <div className="bg-gold dot-pattern py-16 px-8 lg:px-16">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-navy mb-8">
+              فوائد اقتصادية وبيئية لا تُقاوم
+            </h3>
+            <div className="underline-gold bg-navy mb-8" />
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center"
-            >
-              <div className="bg-navy-400/30 border border-gold/20 rounded-2xl p-8 hover:border-gold/50 transition-all duration-300 hover:-translate-y-2">
-                <span className="text-5xl mb-4 block">{stat.icon}</span>
-                <Counter target={stat.number} suffix={stat.suffix} />
-                <p className="text-white text-lg mt-4">{stat.label}</p>
-              </div>
-            </motion.div>
-          ))}
+            <div className="space-y-6">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={benefit.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="flex items-start gap-4"
+                >
+                  <span className="feature-check mt-1">✓</span>
+                  <div>
+                    <h4 className="text-navy font-bold text-lg">{benefit.title}</h4>
+                    <p className="text-navy/70">{benefit.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Navy Panel - Overlapping */}
+        <div className="bg-navy elevated-panel py-16 px-8 lg:px-16 lg:-mr-16 relative z-10 flex items-center">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-right"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-gold mb-6">
+              الخيار الأمثل في سوريا
+            </h3>
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              بات Glow Coal الخيار الأمثل في سوريا لمن يهتم بالبيئة والجودة،
+              تحولاً من الاستهلاك التقليدي إلى نموذج اقتصادي بيئي مربح.
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              سواء كنت تستضيف حفلة شواء في الحديقة، أو تدير مطعمًا، نوفر لك أداءً
+              نظيفًا دون تنازل عن الطعم. طلبيات بالجملة مرحباً بكم - توصيل مجاني!
+            </p>
+
+            <a href="#contact" className="btn-gold inline-block">
+              اطلب الآن
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
