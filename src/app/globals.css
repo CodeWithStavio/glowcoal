@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #01011e;
+  --gold: #f7be79;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-cairo), sans-serif;
+  background-color: var(--navy);
+  color: #ffffff;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Swiper custom styles */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba(247, 190, 121, 0.5);
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #f7be79;
+}
+
+/* Hero content box with golden border */
+.hero-content-box {
+  border: 2px solid #f7be79;
+  padding: 2rem;
+  background: rgba(1, 1, 30, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* Gold gradient overlay for cards */
+.card-overlay {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(247, 190, 121, 0) 50%,
+    rgba(247, 190, 121, 0.9) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.service-card:hover .card-overlay {
+  opacity: 1;
+}
+
+/* Footer stacking layers */
+.footer-layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 190, 121, 0.03);
+  transform-origin: bottom;
+}
+
+.footer-layer:nth-child(1) {
+  transform: translateY(-40px);
+  border-radius: 30px 30px 0 0;
+}
+
+.footer-layer:nth-child(2) {
+  transform: translateY(-20px);
+  border-radius: 20px 20px 0 0;
+  background: rgba(247, 190, 121, 0.05);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e8a55a;
+}
+
+/* Button styles */
+.btn-gold {
+  @apply bg-gold text-navy font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:shadow-gold/30;
+}
+
+.btn-outline {
+  @apply border-2 border-gold text-gold font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gold hover:text-navy;
+}
+
+/* Section padding */
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+/* Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
