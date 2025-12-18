@@ -13,19 +13,19 @@ import "swiper/css/pagination";
 const slides = [
   {
     id: 1,
-    image: "/images/hero-charcoal-1.jpg",
+    image: "https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80",
     title: "فحم نشارة خشب طبيعي 100%",
     subtitle: "بدون مواد كيميائية، بدون دخان، بدون رائحة",
   },
   {
     id: 2,
-    image: "/images/hero-charcoal-2.jpg",
+    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80",
     title: "تجربة شواء غير تقليدية",
     subtitle: "حرارة مستقرة وعالية لمدة 5-6 ساعات",
   },
   {
     id: 3,
-    image: "/images/hero-charcoal-3.jpg",
+    image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1920&q=80",
     title: "الثورة البيئية والاقتصادية",
     subtitle: "فحم صديق للبيئة مصنوع من نفايات الخشب المُعاد تدويرها",
   },
