@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import WorldMapDots from "./WorldMapDots";
 
 const quickLinks = [
   { href: "#home", label: "الرئيسية" },
@@ -125,8 +126,14 @@ export default function Footer() {
           </motion.div>
 
           {/* Orange Panel - Links (Left side in RTL) */}
-          <div className="bg-orange map-dot-pattern py-16 px-8 lg:px-12 order-2 lg:order-1">
-          <div className="h-full">
+          <div className="bg-orange py-16 px-8 lg:px-12 order-2 lg:order-1 relative overflow-hidden">
+            {/* World Map Dots Background - Bottom portion (continues from CTA) */}
+            <div className="absolute inset-0 text-black-700 overflow-hidden">
+              <div className="absolute inset-0" style={{ top: '-100%', height: '200%' }}>
+                <WorldMapDots className="opacity-100" />
+              </div>
+            </div>
+          <div className="h-full relative z-10">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
