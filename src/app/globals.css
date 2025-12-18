@@ -646,6 +646,7 @@ html, body {
 .card-shine {
   position: relative;
   overflow: hidden;
+  transition: background-color 0.4s ease, filter 0.4s ease;
 }
 
 .card-shine::before {
@@ -671,14 +672,19 @@ html, body {
   z-index: 20;
 }
 
+.card-shine:hover {
+  filter: brightness(1.15);
+}
+
 .card-shine:hover::before {
-  animation: shine-sweep 0.8s ease-in-out;
+  animation: shine-sweep 1.5s ease-in-out;
 }
 
 /* Alternative stronger shine for darker cards */
 .card-shine-strong {
   position: relative;
   overflow: hidden;
+  transition: background-color 0.4s ease, filter 0.4s ease;
 }
 
 .card-shine-strong::before {
@@ -704,7 +710,22 @@ html, body {
   z-index: 20;
 }
 
+/* Lighten overlay on hover */
+.card-shine-strong::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.4s ease;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.card-shine-strong:hover::after {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .card-shine-strong:hover::before {
-  animation: shine-sweep 0.7s ease-in-out;
+  animation: shine-sweep 1.4s ease-in-out;
 }
 
