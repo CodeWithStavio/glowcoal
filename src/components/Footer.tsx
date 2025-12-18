@@ -20,10 +20,8 @@ const products = [
 export default function Footer() {
   return (
     <footer id="contact" className="relative">
-      {/* Stacked Layer Effect - Creates visual depth */}
-      <div className="footer-stacked">
-        {/* Main Footer - Split Panel Layout like Diamond Machines */}
-        <div className="footer-split min-h-[500px] relative z-10">
+      {/* Main Footer - Split Panel Layout */}
+      <div className="footer-split min-h-[500px]">
           {/* Black Panel - Company Info (Right side in RTL) */}
           <motion.div
             className="bg-black-700 py-16 px-8 lg:px-12 flex items-center order-1 lg:order-2 lg:-ml-20 relative z-20"
@@ -240,7 +238,6 @@ export default function Footer() {
               </div>
             </motion.div>
           </div>
-        </div>
         </div>
       </div>
 
