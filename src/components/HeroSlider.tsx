@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -13,19 +12,19 @@ import "swiper/css/pagination";
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1635321593217-40050ad13c74?w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80",
     title: "فحم نشارة خشب طبيعي 100%",
     subtitle: "بدون مواد كيميائية، بدون دخان، بدون رائحة",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80",
     title: "تجربة شواء غير تقليدية",
     subtitle: "حرارة مستقرة وعالية لمدة 5-6 ساعات",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=1920&q=80",
     title: "الثورة البيئية والاقتصادية",
     subtitle: "فحم صديق للبيئة مصنوع من نفايات الخشب المُعاد تدويرها",
   },
@@ -61,12 +60,9 @@ export default function HeroSlider() {
                   activeIndex === index ? "animate-slow-zoom" : ""
                 }`}
               >
-                <Image
-                  src={slide.image}
-                  alt={slide.title}
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${slide.image}')` }}
                 />
               </div>
 

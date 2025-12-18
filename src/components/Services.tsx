@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const services = [
   {
@@ -55,11 +54,9 @@ export default function Services() {
     <section id="services" className="relative">
       {/* Hero Image Section - Black 65% */}
       <div className="relative h-[50vh] min-h-[400px]">
-        <Image
-          src="https://images.unsplash.com/photo-1635321593217-40050ad13c74?w=1920&q=80"
-          alt="فحم مضغوط"
-          fill
-          className="object-cover"
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80')` }}
         />
         <div className="absolute inset-0 bg-black-700/80" />
       </div>
@@ -95,11 +92,9 @@ export default function Services() {
               transition={{ duration: 0.8 }}
               className="overlap-image left-full top-1/4 w-[350px] h-[450px] -translate-x-1/2 rounded-lg overflow-hidden shadow-2xl"
             >
-              <Image
-                src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80"
-                alt="فحم مضغوط عالي الجودة"
-                fill
-                className="object-cover"
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80')` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black-700/60 to-transparent" />
               <div className="absolute bottom-4 right-4 left-4">
@@ -181,11 +176,9 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="relative h-[280px] rounded-xl overflow-hidden group"
               >
-                <Image
-                  src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80"
-                  alt="شواء"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80')` }}
                 />
                 <div className="absolute inset-0 bg-black-700/70 group-hover:bg-black-700/80 transition-colors" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
@@ -207,11 +200,9 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="relative h-[280px] rounded-xl overflow-hidden group"
               >
-                <Image
-                  src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80"
-                  alt="مطاعم"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80')` }}
                 />
                 <div className="absolute inset-0 bg-black-700/70 group-hover:bg-black-700/80 transition-colors" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
@@ -233,11 +224,9 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="relative h-[280px] rounded-xl overflow-hidden group"
               >
-                <Image
-                  src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80"
-                  alt="تصدير"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80')` }}
                 />
                 <div className="absolute inset-0 bg-black-700/70 group-hover:bg-black-700/80 transition-colors" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">

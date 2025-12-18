@@ -93,7 +93,7 @@ export default function Stats() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1635321593217-40050ad13c74?w=1920&q=80')`,
+              backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80')`,
             }}
           />
         </div>

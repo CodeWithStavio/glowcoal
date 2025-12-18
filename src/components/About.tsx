@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function About() {
   return (
@@ -72,11 +71,9 @@ export default function About() {
           >
             {/* Image with overlay effect - OVERLAPPING ON TOP */}
             <div className="overlap-image relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl lg:-mr-32">
-              <Image
-                src="https://images.unsplash.com/photo-1635321593217-40050ad13c74?w=800&q=80"
-                alt="فحم طبيعي مضغوط"
-                fill
-                className="object-cover"
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80')` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black-700/60 to-transparent" />
 
