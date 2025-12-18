@@ -86,16 +86,12 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 export default function Stats() {
   return (
     <section id="stats" className="relative">
-      {/* Stats Counter Section - Black */}
-      <div className="bg-black-700 py-20 relative overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 opacity-20">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80')`,
-            }}
-          />
+      {/* Stats Counter Section - Black with gradient */}
+      <div className="bg-gradient-to-br from-black-700 via-black-600 to-red-900/20 py-20 relative overflow-hidden">
+        {/* Animated background effects */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-orange-600/5 rounded-full blur-3xl" />
         </div>
 
         <div className="container-custom relative z-10">

@@ -52,13 +52,14 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="relative">
-      {/* Hero Image Section - Black 65% */}
-      <div className="relative h-[50vh] min-h-[400px]">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80')` }}
-        />
-        <div className="absolute inset-0 bg-black-700/80" />
+      {/* Hero Image Section - Black 65% with charcoal gradient */}
+      <div className="relative h-[50vh] min-h-[400px] bg-gradient-to-br from-black-700 via-black-600 to-red-900/30">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">منتجاتنا</h2>
+            <p className="text-orange text-xl">فحم مضغوط عالي الجودة</p>
+          </div>
+        </div>
       </div>
 
       {/* Services Grid Section with Vertical Text */}
@@ -90,15 +91,17 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="overlap-image left-full top-1/4 w-[350px] h-[450px] -translate-x-1/2 rounded-lg overflow-hidden shadow-2xl"
+              className="overlap-image left-full top-1/4 w-[350px] h-[450px] -translate-x-1/2 overflow-hidden shadow-2xl bg-gradient-to-br from-red-600 to-orange-500"
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80')` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black-700/60 to-transparent" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center text-white p-8">
+                  <div className="text-6xl mb-4">🔥</div>
+                  <h3 className="text-2xl font-bold mb-2">فحم مضغوط</h3>
+                  <p className="text-white/80">جودة عالية</p>
+                </div>
+              </div>
               <div className="absolute bottom-4 right-4 left-4">
-                <span className="bg-red text-white px-3 py-1 rounded text-sm font-bold">
+                <span className="bg-black-700 text-white px-3 py-1 rounded text-sm font-bold">
                   جودة عالية
                 </span>
               </div>
@@ -164,82 +167,68 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Bottom Row - Product Cards */}
-        <div className="bg-white pb-16 px-8 lg:px-16">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Product Card 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="relative h-[280px] rounded-xl overflow-hidden group"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80')` }}
-                />
-                <div className="absolute inset-0 bg-black-700/70 group-hover:bg-black-700/80 transition-colors" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="w-12 h-12 bg-red/20 rounded-xl flex items-center justify-center mb-3">
-                    <svg className="w-6 h-6 text-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                    </svg>
-                  </div>
-                  <h4 className="text-white font-bold text-xl">فحم للشواء</h4>
-                  <p className="text-gray-300 text-sm mt-2">حرارة عالية ومستقرة</p>
+        {/* Bottom Row - Product Cards - SHARP EDGES, NO GAPS */}
+        <div className="bg-white">
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            {/* Product Card 1 - فحم للشواء */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-red-700 via-red-600 to-orange-600"
+            >
+              <div className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/60 transition-colors" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                  </svg>
                 </div>
-              </motion.div>
+                <h4 className="text-white font-bold text-xl">فحم للشواء</h4>
+                <p className="text-gray-200 text-sm mt-2">حرارة عالية ومستقرة</p>
+              </div>
+            </motion.div>
 
-              {/* Product Card 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="relative h-[280px] rounded-xl overflow-hidden group"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80')` }}
-                />
-                <div className="absolute inset-0 bg-black-700/70 group-hover:bg-black-700/80 transition-colors" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="w-12 h-12 bg-orange/20 rounded-xl flex items-center justify-center mb-3">
-                    <svg className="w-6 h-6 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                  </div>
-                  <h4 className="text-white font-bold text-xl">فحم للمطاعم</h4>
-                  <p className="text-gray-300 text-sm mt-2">الخيار المفضل للمحترفين</p>
+            {/* Product Card 2 - فحم للمطاعم */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-orange-600 via-orange-500 to-red-500"
+            >
+              <div className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/60 transition-colors" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="w-12 h-12 bg-orange/30 flex items-center justify-center mb-3">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
                 </div>
-              </motion.div>
+                <h4 className="text-white font-bold text-xl">فحم للمطاعم</h4>
+                <p className="text-gray-200 text-sm mt-2">الخيار المفضل للمحترفين</p>
+              </div>
+            </motion.div>
 
-              {/* Product Card 3 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="relative h-[280px] rounded-xl overflow-hidden group"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80')` }}
-                />
-                <div className="absolute inset-0 bg-black-700/70 group-hover:bg-black-700/80 transition-colors" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="w-12 h-12 bg-red/20 rounded-xl flex items-center justify-center mb-3">
-                    <svg className="w-6 h-6 text-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
-                  </div>
-                  <h4 className="text-white font-bold text-xl">فحم للتصدير</h4>
-                  <p className="text-gray-300 text-sm mt-2">شحن عالمي موثوق</p>
+            {/* Product Card 3 - فحم للتصدير */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-black-700 via-black-600 to-red-900"
+            >
+              <div className="absolute inset-0 bg-black-700/30 group-hover:bg-black-700/50 transition-colors" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
                 </div>
-              </motion.div>
-            </div>
+                <h4 className="text-white font-bold text-xl">فحم للتصدير</h4>
+                <p className="text-gray-200 text-sm mt-2">شحن عالمي موثوق</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

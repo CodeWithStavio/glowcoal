@@ -69,13 +69,15 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="h-full flex flex-col justify-center"
           >
-            {/* Image with overlay effect - OVERLAPPING ON TOP */}
-            <div className="overlap-image relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl lg:-mr-32">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80')` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black-700/60 to-transparent" />
+            {/* Visual Card - OVERLAPPING ON TOP */}
+            <div className="overlap-image relative h-[400px] lg:h-[500px] overflow-hidden shadow-2xl lg:-mr-32 bg-gradient-to-br from-orange-500 via-red-600 to-black-700">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center text-white p-8">
+                  <div className="text-8xl mb-6">🔥</div>
+                  <h3 className="text-3xl font-bold mb-4">فحم مضغوط طبيعي</h3>
+                  <p className="text-white/80 text-lg">صديق للبيئة - جودة عالية</p>
+                </div>
+              </div>
 
               {/* Floating Badge */}
               <div className="absolute bottom-6 right-6 bg-black-700 text-white p-4 rounded-lg">
