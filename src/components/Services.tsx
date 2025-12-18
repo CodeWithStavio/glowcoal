@@ -197,7 +197,7 @@ export default function Services() {
       </div>
 
       {/* Services Grid Section with Vertical Text */}
-      <div className="relative bg-white">
+      <div className="relative bg-black-700">
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row">
           {/* Vertical Text Sidebar - Black */}
@@ -255,8 +255,8 @@ export default function Services() {
             </motion.div>
           </div>
 
-          {/* Services Cards Grid - White background */}
-          <div className="flex-1 py-16 px-8 lg:px-16 lg:pr-[200px] bg-gradient-to-l from-white via-white to-gray-50">
+          {/* Services Cards Grid */}
+          <div className="flex-1 py-16 px-8 lg:px-16 lg:pr-[200px] bg-black-600">
             <div className="max-w-4xl">
               {/* Section Header */}
               <motion.div
@@ -267,12 +267,12 @@ export default function Services() {
                 className="mb-12"
               >
                 <motion.span
-                  className="text-red text-lg font-medium mb-2 block"
+                  className="text-orange text-lg font-medium mb-2 block"
                   whileHover={{ x: 10 }}
                 >
                   خدماتنا
                 </motion.span>
-                <h2 className="text-3xl md:text-4xl font-bold text-black-700 mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   نستورد مختلف أنواع الفحم المضغوط
                 </h2>
                 <motion.div
@@ -297,14 +297,14 @@ export default function Services() {
                     key={service.id}
                     variants={cardVariants}
                     whileHover={{
-                      y: -15,
-                      scale: 1.03,
+                      y: -10,
+                      scale: 1.02,
                       transition: { duration: 0.3 },
                     }}
-                    className="glass-card rounded-xl p-6 cursor-pointer border border-gray-100 relative overflow-hidden"
+                    className="bg-black-700 rounded-xl p-6 cursor-pointer border border-red/20 relative overflow-hidden hover:border-orange/40 transition-colors"
                   >
                     {/* Background Image */}
-                    <div className="absolute inset-0 opacity-10">
+                    <div className="absolute inset-0 opacity-5">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -315,37 +315,28 @@ export default function Services() {
 
                     <div className="relative z-10">
                       {/* Icon */}
-                      <motion.div
-                        className="service-icon"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                      >
+                      <div className="w-14 h-14 bg-orange/20 rounded-xl flex items-center justify-center mb-4">
                         {service.icon}
-                      </motion.div>
+                      </div>
 
                       {/* Title */}
-                      <h3 className="text-xl font-bold text-black-700 mb-3">
+                      <h3 className="text-xl font-bold text-white mb-3">
                         {service.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      <p className="text-gray-400 text-sm leading-relaxed mb-4">
                         {service.description}
                       </p>
 
                       {/* Read More Link */}
                       <motion.a
                         href="#contact"
-                        className="text-red font-medium text-sm inline-flex items-center gap-2"
+                        className="text-orange font-medium text-sm inline-flex items-center gap-2"
                         whileHover={{ x: -10, gap: "12px" }}
                       >
                         اقرأ أكثر
-                        <motion.span
-                          animate={{ x: [0, -5, 0] }}
-                          transition={{ duration: 1, repeat: Infinity }}
-                        >
-                          ◄
-                        </motion.span>
+                        <span>◄</span>
                       </motion.a>
                     </div>
                   </motion.div>
@@ -355,8 +346,8 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Bottom Row - Product Cards - SHARP EDGES, NO GAPS */}
-        <div className="bg-white">
+        {/* Bottom Row - Product Cards */}
+        <div className="bg-black-700">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3"
             initial="hidden"
@@ -368,7 +359,7 @@ export default function Services() {
               <motion.div
                 key={product.id}
                 variants={productCardVariants}
-                whileHover={{ scale: 1.05, zIndex: 10 }}
+                whileHover={{ scale: 1.02, zIndex: 10 }}
                 className="relative h-[320px] overflow-hidden group cursor-pointer"
               >
                 <Image
@@ -377,25 +368,15 @@ export default function Services() {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <motion.div
-                  className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/30 transition-colors duration-500"
-                  whileHover={{ opacity: 0.3 }}
-                />
+                <div className="absolute inset-0 bg-black-700/60 group-hover:bg-black-700/40 transition-colors duration-500" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <motion.div
-                    className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3"
-                    whileHover={{ rotate: 360, scale: 1.2 }}
-                    transition={{ duration: 0.5 }}
-                  >
+                  <div className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3">
                     {product.icon}
-                  </motion.div>
-                  <motion.h4
-                    className="text-white font-bold text-xl"
-                    whileHover={{ scale: 1.05 }}
-                  >
+                  </div>
+                  <h4 className="text-white font-bold text-xl">
                     {product.title}
-                  </motion.h4>
-                  <p className="text-gray-200 text-sm mt-2">{product.subtitle}</p>
+                  </h4>
+                  <p className="text-gray-300 text-sm mt-2">{product.subtitle}</p>
                 </div>
               </motion.div>
             ))}
@@ -432,16 +413,12 @@ export default function Services() {
                     transition: { delay: index * 0.1, type: "spring" },
                   },
                 }}
-                whileHover={{ scale: 1.1, y: -5 }}
+                whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-2 text-white font-medium cursor-default"
               >
-                <motion.span
-                  className="w-5 h-5 bg-white text-red rounded-full flex items-center justify-center text-xs"
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                >
+                <span className="w-5 h-5 bg-white text-red rounded-full flex items-center justify-center text-xs">
                   ✓
-                </motion.span>
+                </span>
                 {feature}
               </motion.div>
             ))}
