@@ -1,153 +1,187 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const videoFeatures = [
-  {
-    icon: "🔥",
-    title: "احتراق طويل",
-    description: "حتى 6 ساعات متواصلة",
-  },
-  {
-    icon: "💨",
-    title: "بدون دخان",
-    description: "نظيف وصحي للبيئة",
-  },
-  {
-    icon: "⚡",
-    title: "حرارة عالية",
-    description: "مثالي للشواء الاحترافي",
-  },
-];
+import { useState } from "react";
 
 export default function VideoShowcase() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayClick = () => {
+    const video = document.getElementById('promo-video') as HTMLVideoElement;
+    if (video) {
+      video.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
-    <section className="relative overflow-hidden">
-      {/* Split Panel Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-        {/* Video Panel - Left */}
-        <div className="relative bg-black-700 p-8 lg:p-12 flex items-center justify-center order-2 lg:order-1">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '32px 32px'
-            }} />
-          </div>
+    <section className="relative py-24 lg:py-32 bg-black-700 overflow-hidden">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black-700 via-black-600/50 to-black-700" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-red/5 rounded-full blur-[120px]" />
+      </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative w-full max-w-xl"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-block text-orange text-sm font-semibold tracking-wider uppercase mb-4"
           >
+            شاهد الجودة بنفسك
+          </motion.span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            فحم <span className="text-orange">جلو كول</span> في العمل
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+            اكتشف سر التميز في كل قطعة فحم - جودة استثنائية تتحدث عن نفسها
+          </p>
+        </motion.div>
+
+        {/* Video Container */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative max-w-5xl mx-auto"
+        >
+          {/* Decorative Elements */}
+          <div className="absolute -top-6 -right-6 w-24 h-24 border border-orange/20 rounded-2xl" />
+          <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-red/20 rounded-2xl" />
+
+          {/* Main Video Card */}
+          <div className="relative group">
+            {/* Ambient glow */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange/20 via-red/20 to-orange/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
             {/* Video Frame */}
-            <div className="relative group">
-              {/* Outer Glow */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-red via-orange to-red rounded-3xl opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
+            <div className="relative bg-gradient-to-br from-black-600 to-black-700 rounded-2xl p-2 shadow-2xl">
+              {/* Inner border glow */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange/10 via-transparent to-red/10 pointer-events-none" />
 
-              {/* Video Container */}
-              <div className="relative rounded-2xl overflow-hidden border-2 border-orange/30 shadow-2xl">
-                {/* Corner Accents */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-orange rounded-tl-xl z-10" />
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-orange rounded-tr-xl z-10" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-orange rounded-bl-xl z-10" />
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-orange rounded-br-xl z-10" />
-
-                {/* Aspect Ratio Container */}
+              {/* Video wrapper */}
+              <div className="relative rounded-xl overflow-hidden bg-black">
+                {/* Aspect ratio container */}
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   <video
-                    className="absolute inset-0 w-full h-full object-cover bg-black-600"
-                    controls
-                    poster="https://images.unsplash.com/photo-1558030006-450675393462?w=1280&q=80"
+                    id="promo-video"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    poster="https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80"
                     preload="metadata"
                     playsInline
+                    controls={isPlaying}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
                   >
                     <source src="/videos/glowcoal-promo.mp4" type="video/mp4" />
                   </video>
+
+                  {/* Custom Play Button Overlay */}
+                  {!isPlaying && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer group/play"
+                      onClick={handlePlayClick}
+                    >
+                      {/* Ripple effect */}
+                      <div className="absolute w-32 h-32 rounded-full bg-orange/20 animate-ping" />
+                      <div className="absolute w-24 h-24 rounded-full bg-orange/30 animate-pulse" />
+
+                      {/* Play button */}
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="relative z-10 w-20 h-20 rounded-full bg-gradient-to-br from-orange to-red flex items-center justify-center shadow-lg shadow-orange/30"
+                      >
+                        <svg className="w-8 h-8 text-white mr-[-4px]" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </motion.div>
+                    </motion.div>
+                  )}
+
+                  {/* Video title overlay */}
+                  {!isPlaying && (
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+                      <div className="flex items-center gap-3">
+                        <div className="w-1 h-12 bg-gradient-to-b from-orange to-red rounded-full" />
+                        <div>
+                          <p className="text-white font-bold text-lg">فيديو ترويجي</p>
+                          <p className="text-gray-400 text-sm">Glow Coal - Premium Charcoal</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-
-                {/* Bottom Gradient */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black-700/80 to-transparent pointer-events-none" />
               </div>
+            </div>
+          </div>
 
-              {/* Play indicator badge */}
+          {/* Feature Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-4 mt-10"
+          >
+            {[
+              { icon: "🔥", label: "احتراق 6 ساعات" },
+              { icon: "✨", label: "بدون دخان" },
+              { icon: "💎", label: "جودة فائقة" },
+              { icon: "🌱", label: "صديق للبيئة" },
+            ].map((feature, index) => (
               <motion.div
+                key={feature.label}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-red text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg"
+                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="flex items-center gap-2 bg-black-600/80 backdrop-blur-sm border border-white/5 px-5 py-3 rounded-full"
               >
-                شاهد الفيديو
+                <span className="text-lg">{feature.icon}</span>
+                <span className="text-white/90 text-sm font-medium">{feature.label}</span>
               </motion.div>
-            </div>
+            ))}
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Content Panel - Right */}
-        <div className="relative bg-gradient-to-br from-red to-red/90 p-8 lg:p-12 flex items-center order-1 lg:order-2">
-          {/* Decorative circles */}
-          <div className="absolute top-10 right-10 w-32 h-32 border border-white/10 rounded-full" />
-          <div className="absolute bottom-10 left-10 w-48 h-48 border border-white/10 rounded-full" />
-          <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-white/5 rounded-full blur-xl" />
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative z-10 w-full"
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-center mt-14"
+        >
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-orange to-red text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-orange/20 hover:shadow-orange/40 transition-shadow"
           >
-            <span className="inline-block bg-white/20 text-white px-4 py-1 rounded-full text-sm font-medium mb-4">
-              شاهد منتجاتنا
-            </span>
-
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              فحم جلو كول
-              <br />
-              <span className="text-orange-200">في العمل</span>
-            </h2>
-
-            <p className="text-white/80 text-lg mb-8 max-w-md">
-              شاهد كيف يتميز فحم جلو كول المضغوط بجودته العالية وأدائه الاستثنائي في الشواء الاحترافي
-            </p>
-
-            {/* Features */}
-            <div className="space-y-4 mb-8">
-              {videoFeatures.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/15 transition-colors"
-                >
-                  <span className="text-2xl">{feature.icon}</span>
-                  <div>
-                    <h4 className="text-white font-bold">{feature.title}</h4>
-                    <p className="text-white/70 text-sm">{feature.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 bg-white text-red font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <span>اطلب الآن</span>
-              <svg className="w-5 h-5 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </motion.a>
-          </motion.div>
-        </div>
+            <span>اطلب عينة مجانية</span>
+            <svg className="w-5 h-5 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </motion.a>
+          <p className="text-gray-500 text-sm mt-4">
+            توصيل مجاني للطلبات الكبيرة
+          </p>
+        </motion.div>
       </div>
     </section>
   );
