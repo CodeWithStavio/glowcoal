@@ -49,16 +49,101 @@ const services = [
   },
 ];
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 80, rotateX: -15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 12,
+      duration: 0.8,
+    },
+  },
+};
+
+const productCardVariants = {
+  hidden: { opacity: 0, scale: 0.8, y: 100 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 15,
+    },
+  },
+};
+
 export default function Services() {
   return (
     <section id="services" className="relative">
       {/* Hero Image Section - Black 65% with charcoal gradient */}
-      <div className="relative h-[50vh] min-h-[400px] bg-gradient-to-br from-black-700 via-black-600 to-red-900/30">
+      <div className="relative h-[50vh] min-h-[400px] bg-gradient-to-br from-black-700 via-black-600 to-red-900/30 overflow-hidden">
+        {/* Animated background particles */}
+        <motion.div
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-600/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+        </motion.div>
+
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">منتجاتنا</h2>
-            <p className="text-orange text-xl">فحم مضغوط عالي الجودة</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, type: "spring" }}
+            className="text-center"
+          >
+            <motion.h2
+              className="text-4xl md:text-6xl font-bold text-white mb-4"
+              animate={{ textShadow: ["0 0 20px rgba(249,115,22,0)", "0 0 40px rgba(249,115,22,0.5)", "0 0 20px rgba(249,115,22,0)"] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              منتجاتنا
+            </motion.h2>
+            <motion.p
+              className="text-orange text-xl md:text-2xl"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              فحم مضغوط عالي الجودة
+            </motion.p>
+          </motion.div>
         </div>
       </div>
 
@@ -70,40 +155,63 @@ export default function Services() {
           <div className="hidden lg:flex w-[180px] bg-black-700 items-center justify-center relative min-h-[800px]">
             <div className="vertical-text">
               <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1, type: "spring" }}
                 className="space-y-2"
               >
-                <span className="text-4xl font-bold text-red block">تمكين</span>
-                <span className="text-4xl font-bold text-white block">إنتاجك</span>
-                <span className="text-4xl font-bold text-orange block">بحلول</span>
-                <span className="text-4xl font-bold text-white block">متكاملة</span>
-                <span className="text-4xl font-bold text-red block">ومبتكرة</span>
-                <span className="text-4xl font-bold text-orange block">وموثوقة</span>
+                {["تمكين", "إنتاجك", "بحلول", "متكاملة", "ومبتكرة", "وموثوقة"].map((text, i) => (
+                  <motion.span
+                    key={text}
+                    className={`text-4xl font-bold block ${
+                      i % 3 === 0 ? "text-red" : i % 3 === 1 ? "text-white" : "text-orange"
+                    }`}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.15, duration: 0.6, type: "spring" }}
+                    whileHover={{ scale: 1.1, textShadow: "0 0 20px currentColor" }}
+                  >
+                    {text}
+                  </motion.span>
+                ))}
               </motion.div>
             </div>
 
             {/* Overlapping Image - ON TOP of cards */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -100, rotate: -10 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1, type: "spring", stiffness: 60 }}
+              whileHover={{ scale: 1.05, rotate: 2 }}
               className="overlap-image left-full top-1/4 w-[350px] h-[450px] -translate-x-1/2 overflow-hidden shadow-2xl bg-gradient-to-br from-red-600 to-orange-500"
             >
-              <div className="absolute inset-0 flex items-center justify-center">
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center"
+                animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+                transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+              >
                 <div className="text-center text-white p-8">
-                  <div className="text-6xl mb-4">🔥</div>
+                  <motion.div
+                    className="text-6xl mb-4"
+                    animate={{ scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    🔥
+                  </motion.div>
                   <h3 className="text-2xl font-bold mb-2">فحم مضغوط</h3>
                   <p className="text-white/80">جودة عالية</p>
                 </div>
-              </div>
+              </motion.div>
               <div className="absolute bottom-4 right-4 left-4">
-                <span className="bg-black-700 text-white px-3 py-1 rounded text-sm font-bold">
+                <motion.span
+                  className="bg-black-700 text-white px-3 py-1 rounded text-sm font-bold inline-block"
+                  whileHover={{ scale: 1.1 }}
+                >
                   جودة عالية
-                </span>
+                </motion.span>
               </div>
             </motion.div>
           </div>
@@ -113,34 +221,57 @@ export default function Services() {
             <div className="max-w-4xl">
               {/* Section Header */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.8, type: "spring" }}
                 className="mb-12"
               >
-                <span className="text-red text-lg font-medium mb-2 block">
+                <motion.span
+                  className="text-red text-lg font-medium mb-2 block"
+                  whileHover={{ x: 10 }}
+                >
                   خدماتنا
-                </span>
+                </motion.span>
                 <h2 className="text-3xl md:text-4xl font-bold text-black-700 mb-4">
                   نستورد مختلف أنواع الفحم المضغوط
                 </h2>
-                <div className="underline-orange" />
+                <motion.div
+                  className="underline-orange"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: 64 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                />
               </motion.div>
 
               {/* Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 {services.map((service, index) => (
                   <motion.div
                     key={service.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    variants={cardVariants}
+                    whileHover={{
+                      y: -15,
+                      scale: 1.03,
+                      transition: { duration: 0.3 },
+                    }}
                     className="glass-card rounded-xl p-6 cursor-pointer border border-gray-100"
                   >
                     {/* Icon */}
-                    <div className="service-icon">{service.icon}</div>
+                    <motion.div
+                      className="service-icon"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      {service.icon}
+                    </motion.div>
 
                     {/* Title */}
                     <h3 className="text-xl font-bold text-black-700 mb-3">
@@ -153,90 +284,136 @@ export default function Services() {
                     </p>
 
                     {/* Read More Link */}
-                    <a
+                    <motion.a
                       href="#contact"
-                      className="text-red font-medium text-sm inline-flex items-center gap-2 hover:gap-3 transition-all"
+                      className="text-red font-medium text-sm inline-flex items-center gap-2"
+                      whileHover={{ x: -10, gap: "12px" }}
                     >
                       اقرأ أكثر
-                      <span>◄</span>
-                    </a>
+                      <motion.span
+                        animate={{ x: [0, -5, 0] }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                      >
+                        ◄
+                      </motion.span>
+                    </motion.a>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
 
         {/* Bottom Row - Product Cards - SHARP EDGES, NO GAPS */}
         <div className="bg-white">
-          <div className="grid grid-cols-1 md:grid-cols-3">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
             {/* Product Card 1 - فحم للشواء */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-red-700 via-red-600 to-orange-600"
+              variants={productCardVariants}
+              whileHover={{ scale: 1.05, zIndex: 10 }}
+              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-red-700 via-red-600 to-orange-600 cursor-pointer"
             >
-              <div className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/60 transition-colors" />
+              <motion.div
+                className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/30 transition-colors duration-500"
+                whileHover={{ opacity: 0.3 }}
+              />
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <div className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3">
+                <motion.div
+                  className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3"
+                  whileHover={{ rotate: 360, scale: 1.2 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
                   </svg>
-                </div>
-                <h4 className="text-white font-bold text-xl">فحم للشواء</h4>
+                </motion.div>
+                <motion.h4
+                  className="text-white font-bold text-xl"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  فحم للشواء
+                </motion.h4>
                 <p className="text-gray-200 text-sm mt-2">حرارة عالية ومستقرة</p>
               </div>
             </motion.div>
 
             {/* Product Card 2 - فحم للمطاعم */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-orange-600 via-orange-500 to-red-500"
+              variants={productCardVariants}
+              whileHover={{ scale: 1.05, zIndex: 10 }}
+              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-orange-600 via-orange-500 to-red-500 cursor-pointer"
             >
-              <div className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/60 transition-colors" />
+              <motion.div
+                className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/30 transition-colors duration-500"
+              />
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <div className="w-12 h-12 bg-orange/30 flex items-center justify-center mb-3">
+                <motion.div
+                  className="w-12 h-12 bg-orange/30 flex items-center justify-center mb-3"
+                  whileHover={{ rotate: 360, scale: 1.2 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
-                </div>
-                <h4 className="text-white font-bold text-xl">فحم للمطاعم</h4>
+                </motion.div>
+                <motion.h4
+                  className="text-white font-bold text-xl"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  فحم للمطاعم
+                </motion.h4>
                 <p className="text-gray-200 text-sm mt-2">الخيار المفضل للمحترفين</p>
               </div>
             </motion.div>
 
             {/* Product Card 3 - فحم للتصدير */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-black-700 via-black-600 to-red-900"
+              variants={productCardVariants}
+              whileHover={{ scale: 1.05, zIndex: 10 }}
+              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-black-700 via-black-600 to-red-900 cursor-pointer"
             >
-              <div className="absolute inset-0 bg-black-700/30 group-hover:bg-black-700/50 transition-colors" />
+              <motion.div
+                className="absolute inset-0 bg-black-700/30 group-hover:bg-black-700/10 transition-colors duration-500"
+              />
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <div className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3">
+                <motion.div
+                  className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3"
+                  whileHover={{ rotate: 360, scale: 1.2 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                   </svg>
-                </div>
-                <h4 className="text-white font-bold text-xl">فحم للتصدير</h4>
+                </motion.div>
+                <motion.h4
+                  className="text-white font-bold text-xl"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  فحم للتصدير
+                </motion.h4>
                 <p className="text-gray-200 text-sm mt-2">شحن عالمي موثوق</p>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Features Strip - Red 20% */}
-      <div className="bg-red py-8">
+      <div className="bg-red py-8 overflow-hidden">
         <div className="container-custom">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+          <motion.div
+            className="flex flex-wrap justify-center gap-8 md:gap-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
             {[
               "بدون مواد كيميائية",
               "بدون دخان",
@@ -247,19 +424,29 @@ export default function Services() {
             ].map((feature, index) => (
               <motion.div
                 key={feature}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="flex items-center gap-2 text-white font-medium"
+                variants={{
+                  hidden: { opacity: 0, y: 30, scale: 0.8 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: { delay: index * 0.1, type: "spring" },
+                  },
+                }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                className="flex items-center gap-2 text-white font-medium cursor-default"
               >
-                <span className="w-5 h-5 bg-white text-red rounded-full flex items-center justify-center text-xs">
+                <motion.span
+                  className="w-5 h-5 bg-white text-red rounded-full flex items-center justify-center text-xs"
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                >
                   ✓
-                </span>
+                </motion.span>
                 {feature}
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
