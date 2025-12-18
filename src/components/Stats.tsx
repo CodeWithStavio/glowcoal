@@ -3,6 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+// Dynamically import to avoid SSR issues with react-simple-maps
+const DottedWorldMap = dynamic(() => import("./DottedWorldMap"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full" />,
+});
 
 const stats = [
   {
@@ -145,12 +152,17 @@ export default function Stats() {
       {/* Benefits Section - Split Panel with Overlapping */}
       <div className="split-panel relative">
         {/* Orange Panel with benefits */}
-        <div className="bg-orange py-16 px-8 lg:px-16">
+        <div className="bg-orange py-16 px-8 lg:px-16 relative overflow-hidden">
+          {/* World Map Background */}
+          <div className="absolute inset-0 opacity-60">
+            <DottedWorldMap />
+          </div>
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="relative z-10"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-black-700 mb-8">
               فوائد اقتصادية وبيئية لا تُقاوم

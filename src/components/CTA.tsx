@@ -1,12 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+// Dynamically import to avoid SSR issues with react-simple-maps
+const DottedWorldMap = dynamic(() => import("./DottedWorldMap"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full" />,
+});
 
 export default function CTA() {
   return (
     <section className="relative">
       {/* Orange CTA Section */}
       <div className="bg-orange py-20 relative overflow-hidden">
+        {/* World Map Background */}
+        <div className="absolute inset-0 opacity-60">
+          <DottedWorldMap />
+        </div>
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
