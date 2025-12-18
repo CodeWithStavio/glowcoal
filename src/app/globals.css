@@ -631,3 +631,80 @@ html, body {
   animation: rotate-slow 30s linear infinite;
 }
 
+/* ========================================
+   MIRROR SHINE EFFECT - Premium Card Hover
+   ======================================== */
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 55%,
+    transparent 60%,
+    transparent 100%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.card-shine:hover::before {
+  animation: shine-sweep 0.8s ease-in-out;
+}
+
+/* Alternative stronger shine for darker cards */
+.card-shine-strong {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine-strong::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.05) 60%,
+    transparent 65%,
+    transparent 100%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.card-shine-strong:hover::before {
+  animation: shine-sweep 0.7s ease-in-out;
+}
+
