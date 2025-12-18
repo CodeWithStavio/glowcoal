@@ -1,20 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import WorldMapDots from "./WorldMapDots";
 
 export default function CTA() {
   return (
     <section className="relative">
       {/* Orange CTA Section */}
       <div className="bg-orange py-20 relative overflow-hidden">
-        {/* World Map Dots Background - Top portion */}
-        <div className="absolute inset-0 text-black-700 overflow-hidden">
-          <div className="absolute inset-0 -top-[0%]" style={{ height: '200%' }}>
-            <WorldMapDots className="opacity-100" />
-          </div>
-        </div>
-
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
