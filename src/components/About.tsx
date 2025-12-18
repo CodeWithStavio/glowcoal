@@ -62,22 +62,25 @@ export default function About() {
         </div>
 
         {/* Red Panel - Image Side (35%) with overlap */}
-        <div className="bg-red dot-pattern py-20 px-8 lg:px-16 order-1 lg:order-2 relative">
+        <div className="bg-red dot-pattern py-20 px-8 lg:px-16 order-1 lg:order-2 relative overflow-visible">
+          {/* Decorative corner accent */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-orange/30 rounded-bl-[100px]" />
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="h-full flex flex-col justify-center"
+            className="h-full flex flex-col justify-center relative"
           >
-            {/* Visual Card - OVERLAPPING with refined shadow */}
+            {/* Visual Card - OVERLAPPING with premium shadow */}
             <motion.div
-              className="relative h-[400px] lg:h-[500px] overflow-hidden rounded-xl lg:-mr-40 z-20"
+              className="relative h-[400px] lg:h-[520px] overflow-hidden rounded-2xl lg:-mr-48 z-20"
               style={{
-                boxShadow: '-30px 30px 60px rgba(0, 0, 0, 0.4), -10px 10px 20px rgba(0, 0, 0, 0.2)'
+                boxShadow: '-40px 40px 80px rgba(0, 0, 0, 0.5), -15px 15px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.1)'
               }}
-              whileHover={{ x: -10 }}
-              transition={{ duration: 0.4 }}
+              whileHover={{ x: -15, scale: 1.02 }}
+              transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
             >
               <Image
                 src="/images/about-factory.jpg"
@@ -85,45 +88,65 @@ export default function About() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black-700/90 via-black-700/30 to-transparent" />
+              {/* Premium gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black-700 via-black-700/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red/20 to-transparent" />
 
-              <div className="absolute inset-0 flex items-end justify-center pb-16">
-                <div className="text-center text-white p-8">
-                  <h3 className="text-3xl font-bold mb-4">فحم مضغوط طبيعي</h3>
+              {/* Content at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="text-white"
+                >
+                  <div className="inline-block bg-orange px-4 py-1 rounded-full text-sm font-bold text-black-700 mb-4">
+                    منتج طبيعي
+                  </div>
+                  <h3 className="text-3xl font-bold mb-2">فحم مضغوط طبيعي</h3>
                   <p className="text-white/80 text-lg">صديق للبيئة - جودة عالية</p>
-                </div>
+                </motion.div>
               </div>
 
-              {/* Floating Badge - Overlapping corner */}
+              {/* Floating Badge - Premium style */}
               <motion.div
-                className="absolute -bottom-4 -right-4 lg:bottom-6 lg:-right-6 bg-black-700 text-white p-5 rounded-xl shadow-2xl z-30"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                className="absolute top-6 left-6 bg-black-700/90 backdrop-blur-md text-white p-5 rounded-2xl shadow-2xl z-30 border border-orange/20"
+                initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.4 }}
+                transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
+                whileHover={{ scale: 1.05 }}
               >
-                <span className="text-4xl font-bold text-orange block">100%</span>
-                <span className="text-sm">طبيعي وصديق للبيئة</span>
+                <span className="text-5xl font-bold text-orange block">100%</span>
+                <span className="text-sm text-gray-300">طبيعي وصديق للبيئة</span>
               </motion.div>
             </motion.div>
 
-            {/* Stats below image - Card elevated style */}
-            <div className="grid grid-cols-2 gap-4 mt-10 lg:-mr-20">
+            {/* Stats below image - Connected orange block style */}
+            <div className="grid grid-cols-2 gap-0 mt-8 lg:-mr-32 relative">
+              {/* Connecting line */}
+              <div className="absolute -top-8 left-1/2 w-1 h-8 bg-gradient-to-b from-transparent to-orange" />
+
               <motion.div
-                className="bg-black-700/30 backdrop-blur-sm p-5 rounded-xl text-center border border-black-700/20"
-                whileHover={{ scale: 1.03, backgroundColor: 'rgba(10, 10, 10, 0.5)' }}
+                className="bg-orange p-6 text-center relative overflow-hidden group"
+                style={{ borderRadius: '20px 0 0 20px' }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-3xl font-bold text-white block">80%</span>
-                <span className="text-white/80 text-sm">تقليل انبعاثات الكربون</span>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="text-4xl font-bold text-black-700 block relative z-10">80%</span>
+                <span className="text-black-700/80 text-sm relative z-10">تقليل انبعاثات الكربون</span>
               </motion.div>
               <motion.div
-                className="bg-black-700/30 backdrop-blur-sm p-5 rounded-xl text-center border border-black-700/20"
-                whileHover={{ scale: 1.03, backgroundColor: 'rgba(10, 10, 10, 0.5)' }}
+                className="bg-black-700 p-6 text-center relative overflow-hidden group"
+                style={{ borderRadius: '0 20px 20px 0' }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-3xl font-bold text-white block">5-6</span>
-                <span className="text-white/80 text-sm">ساعات احتراق</span>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="text-4xl font-bold text-orange block relative z-10">5-6</span>
+                <span className="text-gray-300 text-sm relative z-10">ساعات احتراق</span>
               </motion.div>
             </div>
           </motion.div>

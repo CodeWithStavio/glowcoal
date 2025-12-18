@@ -19,9 +19,86 @@ const products = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative mt-20">
+    <footer id="contact" className="relative">
+      {/* Connected Orange Blocks Section */}
+      <div className="relative bg-black-700 py-16 overflow-hidden">
+        {/* Decorative connecting blocks */}
+        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-red via-orange to-red" />
+
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative">
+            {/* Connecting lines */}
+            <div className="hidden md:block absolute top-1/2 left-[33%] w-[1px] h-16 bg-gradient-to-b from-orange via-orange to-transparent -translate-y-1/2" />
+            <div className="hidden md:block absolute top-1/2 right-[33%] w-[1px] h-16 bg-gradient-to-b from-orange via-orange to-transparent -translate-y-1/2" />
+
+            {/* Block 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="group"
+            >
+              <div className="bg-orange m-2 p-8 rounded-2xl relative overflow-hidden transition-all duration-300 group-hover:scale-[1.02]">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-red/20 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="relative z-10">
+                  <span className="text-5xl font-bold text-black-700 block mb-2">01</span>
+                  <h4 className="text-xl font-bold text-black-700 mb-2">جودة مضمونة</h4>
+                  <p className="text-black-700/70 text-sm">فحم نشارة خشب طبيعي 100% بدون إضافات</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Block 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group"
+            >
+              <div className="bg-red m-2 p-8 rounded-2xl relative overflow-hidden transition-all duration-300 group-hover:scale-[1.02]">
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange/20 rounded-full translate-y-1/2 -translate-x-1/2" />
+                <div className="relative z-10">
+                  <span className="text-5xl font-bold text-white/30 block mb-2">02</span>
+                  <h4 className="text-xl font-bold text-white mb-2">توصيل سريع</h4>
+                  <p className="text-white/80 text-sm">توصيل مجاني لجميع الطلبات بالجملة</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Block 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="group"
+            >
+              <div className="bg-orange m-2 p-8 rounded-2xl relative overflow-hidden transition-all duration-300 group-hover:scale-[1.02]">
+                <div className="absolute top-0 left-0 w-24 h-24 bg-black-700/10 rounded-full -translate-y-1/2 -translate-x-1/2" />
+                <div className="relative z-10">
+                  <span className="text-5xl font-bold text-black-700 block mb-2">03</span>
+                  <h4 className="text-xl font-bold text-black-700 mb-2">أسعار منافسة</h4>
+                  <p className="text-black-700/70 text-sm">أفضل جودة بأسعار تنافسية للسوق</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom decorative strip */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <div className="flex">
+            <div className="flex-1 h-3 bg-orange" />
+            <div className="flex-1 h-3 bg-red" />
+            <div className="flex-1 h-3 bg-orange" />
+          </div>
+        </div>
+      </div>
+
       {/* Stacked Layer Effect - Creates visual depth */}
-      <div className="footer-stacked">
+      <div className="footer-stacked mt-0">
         {/* Main Footer - Split Panel Layout like Diamond Machines */}
         <div className="footer-split min-h-[500px] relative z-10">
           {/* Black Panel - Company Info (Right side in RTL) */}
