@@ -15,14 +15,15 @@ interface OrangeSectionsWrapperProps {
 
 /**
  * Wrapper component that provides a single world map background
- * spanning across all orange sections (Stats benefits, CTA, Footer)
+ * spanning across the red sections (Stats benefits, CTA, Footer)
+ * Color distribution: 60% black, 20% red, 15% orange, 5% white
  */
 export default function OrangeSectionsWrapper({ children }: OrangeSectionsWrapperProps) {
   return (
     <div className="relative">
-      {/* Single World Map Background - spans all orange sections */}
-      <div className="absolute inset-0 bg-orange overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-60">
+      {/* Single World Map Background - red for 20% color distribution */}
+      <div className="absolute inset-0 bg-red overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 opacity-40">
           <DottedWorldMap />
         </div>
       </div>

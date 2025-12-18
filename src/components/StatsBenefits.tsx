@@ -33,10 +33,10 @@ export default function StatsBenefits() {
           transition={{ duration: 0.6 }}
           className="relative z-10"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-black-700 mb-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
             فوائد اقتصادية وبيئية لا تُقاوم
           </h3>
-          <div className="underline-black mb-8" />
+          <div className="underline-orange mb-8" />
 
           <div className="space-y-6">
             {benefits.map((benefit, index) => (
@@ -49,14 +49,14 @@ export default function StatsBenefits() {
                 className="flex items-start gap-4 group"
               >
                 <motion.span
-                  className="inline-flex items-center justify-center w-7 h-7 bg-black-700 text-white rounded-full text-sm font-bold flex-shrink-0 mt-1 shadow-lg"
+                  className="inline-flex items-center justify-center w-7 h-7 bg-orange text-white rounded-full text-sm font-bold flex-shrink-0 mt-1 shadow-lg"
                   whileHover={{ scale: 1.1 }}
                 >
                   ✓
                 </motion.span>
                 <div>
-                  <h4 className="text-black-700 font-bold text-lg group-hover:text-black-600 transition-colors">{benefit.title}</h4>
-                  <p className="text-black-700/70">{benefit.description}</p>
+                  <h4 className="text-white font-bold text-lg group-hover:text-orange transition-colors">{benefit.title}</h4>
+                  <p className="text-white/80">{benefit.description}</p>
                 </div>
               </motion.div>
             ))}
