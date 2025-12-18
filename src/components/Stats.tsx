@@ -219,8 +219,23 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      {/* Section Connector - Stats to CTA */}
-      <div className="section-connector-strip" />
+      {/* Seamless Transition to CTA - Matching Split Panel Pattern */}
+      <div className="split-panel h-24 lg:h-32">
+        {/* Orange to Red gradient */}
+        <div
+          className="relative"
+          style={{
+            background: 'linear-gradient(180deg, #f97316 0%, #dc2626 100%)'
+          }}
+        />
+        {/* Black to Red gradient */}
+        <div
+          className="relative"
+          style={{
+            background: 'linear-gradient(180deg, #0a0a0a 0%, #dc2626 100%)'
+          }}
+        />
+      </div>
     </section>
   );
 }

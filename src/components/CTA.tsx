@@ -97,8 +97,23 @@ export default function CTA() {
         </div>
       </div>
 
-      {/* Section Connector - CTA to Footer */}
-      <div className="section-connector-fade" />
+      {/* Seamless Transition to Footer - Matching Footer Split Panel */}
+      <div className="footer-split h-24 lg:h-32">
+        {/* Red to Orange gradient (matches footer orange panel - 35%) */}
+        <div
+          className="relative"
+          style={{
+            background: 'linear-gradient(180deg, #dc2626 0%, #f97316 100%)'
+          }}
+        />
+        {/* Red to Black gradient (matches footer black panel - 65%) */}
+        <div
+          className="relative"
+          style={{
+            background: 'linear-gradient(180deg, #dc2626 0%, #0a0a0a 100%)'
+          }}
+        />
+      </div>
     </section>
   );
 }
