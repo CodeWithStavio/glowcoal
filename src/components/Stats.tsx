@@ -218,6 +218,9 @@ export default function Stats() {
           </div>
         </motion.div>
       </div>
+
+      {/* Section Connector - Stats to CTA */}
+      <div className="section-connector-strip" />
     </section>
   );
 }

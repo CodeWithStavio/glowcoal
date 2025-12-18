@@ -96,6 +96,9 @@ export default function CTA() {
           </div>
         </div>
       </div>
+
+      {/* Section Connector - CTA to Footer */}
+      <div className="section-connector-fade" />
     </section>
   );
 }

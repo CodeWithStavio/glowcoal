@@ -19,7 +19,7 @@ const products = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative mt-20">
+    <footer id="contact" className="relative">
       {/* Stacked Layer Effect - Creates visual depth */}
       <div className="footer-stacked">
         {/* Main Footer - Split Panel Layout like Diamond Machines */}
