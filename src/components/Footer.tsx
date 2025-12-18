@@ -2,13 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-
-// Dynamically import to avoid SSR issues with react-simple-maps
-const DottedWorldMap = dynamic(() => import("./DottedWorldMap"), {
-  ssr: false,
-  loading: () => <div className="w-full h-full" />,
-});
 
 const quickLinks = [
   { href: "#home", label: "الرئيسية" },
@@ -131,12 +124,8 @@ export default function Footer() {
           </motion.div>
           </motion.div>
 
-          {/* Orange Panel - Links (Left side in RTL) */}
-          <div className="bg-orange py-16 px-8 lg:px-12 order-2 lg:order-1 relative overflow-hidden">
-            {/* World Map Background */}
-            <div className="absolute inset-0 opacity-60">
-              <DottedWorldMap />
-            </div>
+          {/* Orange Panel - Links (Left side in RTL) - transparent to show wrapper's map */}
+          <div className="py-16 px-8 lg:px-12 order-2 lg:order-1 relative">
           <div className="h-full relative z-10">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
