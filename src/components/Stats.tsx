@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import WorldMapDots from "./WorldMapDots";
 
 const stats = [
   {
@@ -145,8 +146,15 @@ export default function Stats() {
       {/* Benefits Section - Split Panel with Overlapping */}
       <div className="split-panel relative">
         {/* Orange Panel with benefits */}
-        <div className="bg-orange dot-pattern py-16 px-8 lg:px-16 relative">
+        <div className="bg-orange py-16 px-8 lg:px-16 relative overflow-hidden">
+          {/* World Map Dots Background */}
+          <div className="absolute inset-0 text-black-700 overflow-hidden">
+            <div className="absolute inset-0" style={{ top: '-50%', height: '200%' }}>
+              <WorldMapDots className="opacity-100" />
+            </div>
+          </div>
           <motion.div
+            className="relative z-10"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

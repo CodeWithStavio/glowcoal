@@ -261,18 +261,7 @@ body {
   @apply bg-orange relative;
 }
 
-/* Dot pattern background - animated */
-.dot-pattern {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 2px, transparent 2px);
-  background-size: 20px 20px;
-  animation: shimmer 20s linear infinite;
-}
-
-/* World map dot pattern for footer */
-.map-dot-pattern {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
-  background-size: 15px 15px;
-}
+/* Old dot patterns removed - using WorldMapDots component instead */
 
 /* Hero content box with orange border - ANIMATED GLOW */
 .hero-content-box {
