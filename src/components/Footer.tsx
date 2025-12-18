@@ -22,8 +22,8 @@ export default function Footer() {
     <footer id="contact" className="relative">
       {/* Main Footer - Split Panel Layout like Diamond Machines */}
       <div className="footer-split min-h-[500px]">
-        {/* Navy Panel - Company Info (Right side in RTL) */}
-        <div className="bg-navy elevated-panel py-16 px-8 lg:px-12 flex items-center order-1 lg:order-2">
+        {/* Black Panel - Company Info (Right side in RTL) */}
+        <div className="bg-black-700 elevated-panel py-16 px-8 lg:px-12 flex items-center order-1 lg:order-2">
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -34,7 +34,7 @@ export default function Footer() {
             {/* Logo */}
             <Link href="/" className="inline-block mb-8">
               <span className="text-4xl font-bold">
-                <span className="text-gold">جلو</span>
+                <span className="text-orange">جلو</span>
                 <span className="text-white">كول</span>
               </span>
             </Link>
@@ -49,9 +49,9 @@ export default function Footer() {
             <div className="space-y-4 mb-8">
               <a
                 href="tel:0991230605"
-                className="flex items-center gap-4 text-white hover:text-gold transition-colors group"
+                className="flex items-center gap-4 text-white hover:text-orange transition-colors group"
               >
-                <span className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold group-hover:text-navy transition-colors">
+                <span className="w-10 h-10 bg-red/20 rounded-full flex items-center justify-center group-hover:bg-red transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -74,9 +74,9 @@ export default function Footer() {
                 href="https://wa.me/963933292192"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 text-white hover:text-gold transition-colors group"
+                className="flex items-center gap-4 text-white hover:text-orange transition-colors group"
               >
-                <span className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold group-hover:text-navy transition-colors">
+                <span className="w-10 h-10 bg-red/20 rounded-full flex items-center justify-center group-hover:bg-red transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -91,9 +91,9 @@ export default function Footer() {
 
               <a
                 href="mailto:info@glowcoal.com"
-                className="flex items-center gap-4 text-white hover:text-gold transition-colors group"
+                className="flex items-center gap-4 text-white hover:text-orange transition-colors group"
               >
-                <span className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold group-hover:text-navy transition-colors">
+                <span className="w-10 h-10 bg-red/20 rounded-full flex items-center justify-center group-hover:bg-red transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -115,8 +115,8 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Gold Panel - Links (Left side in RTL) */}
-        <div className="bg-gold map-dot-pattern py-16 px-8 lg:px-12 order-2 lg:order-1">
+        {/* Orange Panel - Links (Left side in RTL) */}
+        <div className="bg-orange map-dot-pattern py-16 px-8 lg:px-12 order-2 lg:order-1">
           <div className="h-full">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -127,16 +127,16 @@ export default function Footer() {
             >
               {/* Quick Links */}
               <div>
-                <h3 className="text-xl font-bold text-navy mb-6">روابط مفيدة</h3>
-                <div className="underline-gold bg-navy mb-6" />
+                <h3 className="text-xl font-bold text-black-700 mb-6">روابط مفيدة</h3>
+                <div className="underline-black mb-6" />
                 <ul className="space-y-3">
                   {quickLinks.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-navy/80 hover:text-navy transition-colors flex items-center gap-2"
+                        className="text-black-700/80 hover:text-black-700 transition-colors flex items-center gap-2"
                       >
-                        <span className="text-navy text-sm">◄</span>
+                        <span className="text-red text-sm">◄</span>
                         {link.label}
                       </Link>
                     </li>
@@ -146,13 +146,13 @@ export default function Footer() {
 
               {/* Products */}
               <div>
-                <h3 className="text-xl font-bold text-navy mb-6">منتجاتنا</h3>
-                <div className="underline-gold bg-navy mb-6" />
+                <h3 className="text-xl font-bold text-black-700 mb-6">منتجاتنا</h3>
+                <div className="underline-black mb-6" />
                 <ul className="space-y-3">
                   {products.map((product) => (
                     <li key={product}>
-                      <span className="text-navy/80 flex items-center gap-2">
-                        <span className="text-navy text-sm">◄</span>
+                      <span className="text-black-700/80 flex items-center gap-2">
+                        <span className="text-red text-sm">◄</span>
                         {product}
                       </span>
                     </li>
@@ -162,15 +162,15 @@ export default function Footer() {
 
               {/* Social & Contact */}
               <div>
-                <h3 className="text-xl font-bold text-navy mb-6">تابعنا</h3>
-                <div className="underline-gold bg-navy mb-6" />
+                <h3 className="text-xl font-bold text-black-700 mb-6">تابعنا</h3>
+                <div className="underline-black mb-6" />
 
                 <div className="flex gap-4 mb-8">
                   <a
                     href="https://wa.me/963933292192"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center text-navy hover:bg-navy hover:text-gold transition-colors"
+                    className="w-12 h-12 bg-black-700/10 rounded-full flex items-center justify-center text-black-700 hover:bg-black-700 hover:text-orange transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +183,7 @@ export default function Footer() {
                   </a>
                   <a
                     href="mailto:info@glowcoal.com"
-                    className="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center text-navy hover:bg-navy hover:text-gold transition-colors"
+                    className="w-12 h-12 bg-black-700/10 rounded-full flex items-center justify-center text-black-700 hover:bg-black-700 hover:text-orange transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -202,7 +202,7 @@ export default function Footer() {
                   </a>
                   <a
                     href="tel:0991230605"
-                    className="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center text-navy hover:bg-navy hover:text-gold transition-colors"
+                    className="w-12 h-12 bg-black-700/10 rounded-full flex items-center justify-center text-black-700 hover:bg-black-700 hover:text-orange transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +221,7 @@ export default function Footer() {
                   </a>
                 </div>
 
-                <p className="text-navy/70 text-sm">
+                <p className="text-black-700/70 text-sm">
                   دردشة مباشرة عبر واتساب
                   <br />
                   اتصال مباشر للاستفسارات
@@ -233,7 +233,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright Bar */}
-      <div className="bg-navy border-t border-gold/10">
+      <div className="bg-black-700 border-t border-red/20">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">

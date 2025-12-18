@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --navy: #01011e;
-  --gold: #f7be79;
+  --black: #0a0a0a;
+  --red: #dc2626;
+  --orange: #f97316;
   --white: #ffffff;
 }
 
@@ -20,14 +21,14 @@ html {
 
 body {
   font-family: "Cairo", sans-serif;
-  background-color: var(--navy);
+  background-color: var(--black);
   color: #ffffff;
   direction: rtl;
   text-align: right;
 }
 
 /* ========================================
-   COLOR DISTRIBUTION: 65% Navy, 20% Gold, 15% White
+   COLOR DISTRIBUTION: 65% Black, 20% Red, 15% Orange
    ======================================== */
 
 /* Swiper custom styles */
@@ -42,14 +43,14 @@ body {
 }
 
 .swiper-pagination-bullet {
-  background-color: rgba(247, 190, 121, 0.5);
+  background-color: rgba(249, 115, 22, 0.5);
   width: 12px;
   height: 12px;
   opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #f7be79;
+  background-color: #f97316;
 }
 
 /* ========================================
@@ -93,90 +94,39 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Glass card with navy background */
-.glass-card-navy {
-  position: relative;
-  background: rgba(1, 1, 30, 0.85);
-  backdrop-filter: blur(10px);
-  overflow: hidden;
-  transition: all 0.4s ease;
-}
-
-.glass-card-navy::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    transparent 25%,
-    rgba(247, 190, 121, 0.3) 45%,
-    rgba(247, 190, 121, 0.5) 50%,
-    rgba(247, 190, 121, 0.3) 55%,
-    transparent 75%,
-    transparent 100%
-  );
-  transition: left 0.6s ease;
-  z-index: 10;
-}
-
-.glass-card-navy:hover::before {
-  left: 100%;
-}
-
-.glass-card-navy:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(247, 190, 121, 0.2);
-}
-
 /* ========================================
    OVERLAPPING PANEL STYLES
    ======================================== */
-.panel-navy {
-  @apply bg-navy relative z-20;
+.panel-black {
+  @apply bg-black-700 relative;
 }
 
-.panel-gold {
-  @apply bg-gold relative z-10;
+.panel-red {
+  @apply bg-red relative;
+}
+
+.panel-orange {
+  @apply bg-orange relative;
 }
 
 /* Dot pattern background */
 .dot-pattern {
-  background-image: radial-gradient(circle, rgba(1, 1, 30, 0.12) 2px, transparent 2px);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 2px, transparent 2px);
   background-size: 20px 20px;
 }
 
 /* World map dot pattern for footer */
 .map-dot-pattern {
-  background-image: radial-gradient(circle, rgba(1, 1, 30, 0.08) 2px, transparent 2px);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
   background-size: 15px 15px;
 }
 
-/* Hero content box with golden border */
+/* Hero content box with orange border */
 .hero-content-box {
-  border: 2px solid #f7be79;
+  border: 2px solid #f97316;
   padding: 2rem;
-  background: rgba(1, 1, 30, 0.85);
+  background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(10px);
-}
-
-/* Gold gradient overlay for cards */
-.card-overlay {
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(247, 190, 121, 0) 50%,
-    rgba(247, 190, 121, 0.9) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
-
-.service-card:hover .card-overlay {
-  opacity: 1;
 }
 
 /* Split panel layout */
@@ -188,19 +138,19 @@ body {
 
 @media (min-width: 1024px) {
   .split-panel {
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 65% 35%;
   }
 
   .split-panel-reverse {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 35% 65%;
   }
 }
 
-/* Elevated panel effect - shadow on left for RTL */
+/* Elevated panel effect */
 .elevated-panel {
-  box-shadow: 20px 0 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 20px 0 60px rgba(0, 0, 0, 0.5);
   position: relative;
-  z-index: 10;
+  z-index: 20;
 }
 
 /* Footer split panel */
@@ -232,35 +182,43 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--navy);
+  background: var(--black);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gold);
+  background: var(--red);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e8a55a;
+  background: var(--orange);
 }
 
 /* ========================================
    BUTTON STYLES
    ======================================== */
-.btn-gold {
-  @apply bg-gold text-navy font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:shadow-gold/30;
+.btn-red {
+  @apply bg-red text-white font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-red-700 hover:shadow-lg hover:shadow-red/30;
 }
 
-.btn-outline {
-  @apply border-2 border-gold text-gold font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gold hover:text-navy;
+.btn-orange {
+  @apply bg-orange text-white font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange/30;
 }
 
-.btn-navy {
-  @apply bg-navy text-white font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-navy-400;
+.btn-outline-red {
+  @apply border-2 border-red text-red font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-red hover:text-white;
+}
+
+.btn-outline-orange {
+  @apply border-2 border-orange text-orange font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-orange hover:text-white;
+}
+
+.btn-black {
+  @apply bg-black-700 text-white font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-black-600;
 }
 
 .btn-white {
-  @apply bg-white text-navy font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gray-100;
+  @apply bg-white text-black-700 font-bold px-8 py-3 rounded-md transition-all duration-300 hover:bg-gray-100;
 }
 
 /* ========================================
@@ -274,16 +232,20 @@ body {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.underline-gold {
-  @apply w-16 h-1 bg-gold;
+.underline-red {
+  @apply w-16 h-1 bg-red;
 }
 
-.underline-navy {
-  @apply w-16 h-1 bg-navy;
+.underline-orange {
+  @apply w-16 h-1 bg-orange;
+}
+
+.underline-black {
+  @apply w-16 h-1 bg-black-700;
 }
 
 .feature-check {
-  @apply inline-flex items-center justify-center w-6 h-6 bg-gold text-navy rounded-full text-sm font-bold flex-shrink-0;
+  @apply inline-flex items-center justify-center w-6 h-6 bg-orange text-white rounded-full text-sm font-bold flex-shrink-0;
 }
 
 /* ========================================
@@ -294,20 +256,28 @@ body {
 }
 
 .back-to-top {
-  @apply fixed bottom-6 left-24 z-50 w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center shadow-lg hover:bg-gold-500 transition-all duration-300 hover:scale-110;
+  @apply fixed bottom-6 left-24 z-50 w-12 h-12 bg-red text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-all duration-300 hover:scale-110;
 }
 
 /* ========================================
    SERVICE CARD ICON
    ======================================== */
 .service-icon {
-  @apply w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center mb-4 transition-all duration-300;
+  @apply w-16 h-16 bg-orange/10 rounded-xl flex items-center justify-center mb-4 transition-all duration-300;
 }
 
 .glass-card:hover .service-icon {
-  @apply bg-gold;
+  @apply bg-red;
 }
 
 .glass-card:hover .service-icon svg {
-  @apply text-navy;
+  @apply text-white;
+}
+
+/* ========================================
+   OVERLAPPING IMAGE - ON TOP
+   ======================================== */
+.overlap-image {
+  position: absolute;
+  z-index: 30;
 }

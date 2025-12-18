@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -13,22 +13,19 @@ import "swiper/css/pagination";
 const slides = [
   {
     id: 1,
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1635321593217-40050ad13c74?w=1920&q=80",
     title: "فحم نشارة خشب طبيعي 100%",
     subtitle: "بدون مواد كيميائية، بدون دخان، بدون رائحة",
   },
   {
     id: 2,
-    image:
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1920&q=80",
     title: "تجربة شواء غير تقليدية",
     subtitle: "حرارة مستقرة وعالية لمدة 5-6 ساعات",
   },
   {
     id: 3,
-    image:
-      "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=1920&q=80",
     title: "الثورة البيئية والاقتصادية",
     subtitle: "فحم صديق للبيئة مصنوع من نفايات الخشب المُعاد تدويرها",
   },
@@ -73,8 +70,8 @@ export default function HeroSlider() {
                 />
               </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-navy/70" />
+              {/* Dark Overlay - 65% Black */}
+              <div className="absolute inset-0 bg-black-700/75" />
 
               {/* Content */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -98,7 +95,7 @@ export default function HeroSlider() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}
-                      className="text-xl md:text-2xl text-gold mb-8"
+                      className="text-xl md:text-2xl text-orange mb-8"
                     >
                       {slide.subtitle}
                     </motion.p>
@@ -108,10 +105,10 @@ export default function HeroSlider() {
                       transition={{ duration: 0.6, delay: 0.8 }}
                       className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
-                      <a href="#services" className="btn-gold">
+                      <a href="#services" className="btn-red">
                         اكتشف منتجاتنا
                       </a>
-                      <a href="#contact" className="btn-outline">
+                      <a href="#contact" className="btn-outline-orange">
                         تواصل معنا
                       </a>
                     </motion.div>
@@ -126,12 +123,9 @@ export default function HeroSlider() {
       {/* Custom Pagination */}
       <div className="custom-pagination absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-10" />
 
-      {/* Overlapping Gold Panel at Bottom */}
+      {/* Red accent strip at bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
-        <div className="relative">
-          {/* Gold accent strip */}
-          <div className="h-2 bg-gold"></div>
-        </div>
+        <div className="h-2 bg-red"></div>
       </div>
 
       {/* Scroll Indicator */}
@@ -144,12 +138,12 @@ export default function HeroSlider() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gold rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-orange rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-3 bg-gold rounded-full mt-2"
+            className="w-1.5 h-3 bg-orange rounded-full mt-2"
           />
         </motion.div>
       </motion.div>

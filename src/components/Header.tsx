@@ -29,7 +29,7 @@ export default function Header() {
     <header
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-navy/95 backdrop-blur-md shadow-lg py-3"
+          ? "bg-black-700/95 backdrop-blur-md shadow-lg py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -43,7 +43,7 @@ export default function Header() {
               transition={{ duration: 0.5 }}
               className="text-2xl md:text-3xl font-bold"
             >
-              <span className="text-gold">جلو</span>
+              <span className="text-orange">جلو</span>
               <span className="text-white">كول</span>
             </motion.div>
           </Link>
@@ -64,7 +64,7 @@ export default function Header() {
               >
                 <Link
                   href={link.href}
-                  className="text-white hover:text-gold transition-colors duration-300 text-lg"
+                  className="text-white hover:text-orange transition-colors duration-300 text-lg"
                 >
                   {link.label}
                 </Link>
@@ -83,7 +83,7 @@ export default function Header() {
               href="https://wa.me/963933292192"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold inline-flex items-center gap-2"
+              className="btn-red inline-flex items-center gap-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -137,15 +137,15 @@ export default function Header() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden"
+              className="md:hidden overflow-hidden bg-black-700/95 mt-4 rounded-lg"
             >
-              <ul className="py-4 space-y-4">
+              <ul className="py-4 px-4 space-y-4">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-white hover:text-gold transition-colors duration-300 text-lg py-2"
+                      className="block text-white hover:text-orange transition-colors duration-300 text-lg py-2"
                     >
                       {link.label}
                     </Link>
@@ -156,7 +156,7 @@ export default function Header() {
                     href="https://wa.me/963933292192"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-gold inline-flex items-center gap-2 w-full justify-center"
+                    className="btn-red inline-flex items-center gap-2 w-full justify-center"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

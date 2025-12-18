@@ -76,7 +76,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
   }, [isInView, target]);
 
   return (
-    <span ref={ref} className="text-4xl md:text-5xl font-bold text-gold">
+    <span ref={ref} className="text-4xl md:text-5xl font-bold text-orange">
       {count}
       {suffix}
     </span>
@@ -86,14 +86,14 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 export default function Stats() {
   return (
     <section id="stats" className="relative">
-      {/* Stats Counter Section - Navy */}
-      <div className="bg-navy py-20 relative overflow-hidden">
+      {/* Stats Counter Section - Black */}
+      <div className="bg-black-700 py-20 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80')`,
+              backgroundImage: `url('https://images.unsplash.com/photo-1635321593217-40050ad13c74?w=1920&q=80')`,
             }}
           />
         </div>
@@ -106,13 +106,13 @@ export default function Stats() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-gold text-lg font-medium mb-2 block">
+            <span className="text-orange text-lg font-medium mb-2 block">
               إنجازاتنا
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               أرقام تتحدث عنا
             </h2>
-            <div className="underline-gold mx-auto" />
+            <div className="underline-red mx-auto" />
           </motion.div>
 
           {/* Stats Grid */}
@@ -126,7 +126,7 @@ export default function Stats() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="bg-navy-400/40 border border-gold/20 rounded-xl p-8 hover:border-gold/50 transition-all duration-300 hover:-translate-y-2">
+                <div className="bg-black-600/40 border border-red/20 rounded-xl p-8 hover:border-red/50 transition-all duration-300 hover:-translate-y-2">
                   <Counter target={stat.number} suffix={stat.suffix} />
                   <p className="text-white text-lg mt-4">{stat.label}</p>
                 </div>
@@ -138,18 +138,18 @@ export default function Stats() {
 
       {/* Benefits Section - Split Panel */}
       <div className="split-panel">
-        {/* Gold Panel with benefits */}
-        <div className="bg-gold dot-pattern py-16 px-8 lg:px-16">
+        {/* Orange Panel with benefits */}
+        <div className="bg-orange dot-pattern py-16 px-8 lg:px-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-navy mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-black-700 mb-8">
               فوائد اقتصادية وبيئية لا تُقاوم
             </h3>
-            <div className="underline-gold bg-navy mb-8" />
+            <div className="underline-black mb-8" />
 
             <div className="space-y-6">
               {benefits.map((benefit, index) => (
@@ -161,10 +161,10 @@ export default function Stats() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <span className="feature-check mt-1">✓</span>
+                  <span className="inline-flex items-center justify-center w-6 h-6 bg-black-700 text-white rounded-full text-sm font-bold flex-shrink-0 mt-1">✓</span>
                   <div>
-                    <h4 className="text-navy font-bold text-lg">{benefit.title}</h4>
-                    <p className="text-navy/70">{benefit.description}</p>
+                    <h4 className="text-black-700 font-bold text-lg">{benefit.title}</h4>
+                    <p className="text-black-700/70">{benefit.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -172,8 +172,8 @@ export default function Stats() {
           </motion.div>
         </div>
 
-        {/* Navy Panel - Overlapping */}
-        <div className="bg-navy elevated-panel py-16 px-8 lg:px-16 lg:-mr-16 relative z-10 flex items-center">
+        {/* Black Panel - Overlapping */}
+        <div className="bg-black-700 elevated-panel py-16 px-8 lg:px-16 lg:-mr-16 relative z-10 flex items-center">
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -181,7 +181,7 @@ export default function Stats() {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-right"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-gold mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-red mb-6">
               الخيار الأمثل في سوريا
             </h3>
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
@@ -193,7 +193,7 @@ export default function Stats() {
               نظيفًا دون تنازل عن الطعم. طلبيات بالجملة مرحباً بكم - توصيل مجاني!
             </p>
 
-            <a href="#contact" className="btn-gold inline-block">
+            <a href="#contact" className="btn-red inline-block">
               اطلب الآن
             </a>
           </motion.div>
