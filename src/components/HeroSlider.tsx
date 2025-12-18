@@ -35,7 +35,7 @@ export default function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="home" className="relative min-h-screen w-full">
+    <section id="home" className="relative hero-constrained h-screen max-h-[900px]">
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
@@ -50,44 +50,46 @@ export default function HeroSlider() {
         }}
         loop={true}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="h-screen w-full"
+        className="h-full w-full"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id}>
             <div className="relative h-full w-full">
-              {/* Background Image */}
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                className="object-cover"
-                priority={index === 0}
-              />
-
-              {/* Dark Overlay with gradient */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black-700/70 via-black-700/50 to-black-700/80" />
-
-              {/* Animated fire particles effect */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
-                <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-red-500/5 rounded-full blur-2xl animate-pulse delay-500" />
+              {/* Background Image - Constrained */}
+              <div className="hero-image-container">
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  priority={index === 0}
+                />
               </div>
 
-              {/* Content */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* Dark Overlay with gradient */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black-700/60 via-black-700/40 to-black-700/80" />
+
+              {/* Subtle ambient glow */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-red-600/8 rounded-full blur-[100px]" />
+                <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-orange-600/8 rounded-full blur-[80px]" />
+              </div>
+
+              {/* Content - Premium Card Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center px-4">
                 <div className="container-custom">
                   <motion.div
                     key={activeIndex}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="hero-content-box max-w-3xl mx-auto text-center"
+                    initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+                    className="hero-card max-w-3xl mx-auto text-center"
                   >
                     <motion.h1
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
                       className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
                     >
                       {slide.title}
@@ -95,7 +97,7 @@ export default function HeroSlider() {
                     <motion.p
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.6 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
                       className="text-xl md:text-2xl text-orange mb-8"
                     >
                       {slide.subtitle}
@@ -103,7 +105,7 @@ export default function HeroSlider() {
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
                       className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
                       <a href="#services" className="btn-red">
@@ -122,11 +124,11 @@ export default function HeroSlider() {
       </Swiper>
 
       {/* Custom Pagination */}
-      <div className="custom-pagination absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-10" />
+      <div className="custom-pagination absolute bottom-20 left-0 right-0 flex justify-center gap-3 z-10" />
 
-      {/* Red accent strip at bottom */}
+      {/* Depth strip at bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
-        <div className="h-2 bg-red"></div>
+        <div className="depth-strip"></div>
       </div>
 
       {/* Scroll Indicator */}
@@ -134,16 +136,16 @@ export default function HeroSlider() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-28 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-orange rounded-full flex justify-center"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-6 h-10 border-2 border-orange/60 rounded-full flex justify-center backdrop-blur-sm"
         >
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             className="w-1.5 h-3 bg-orange rounded-full mt-2"
           />
         </motion.div>

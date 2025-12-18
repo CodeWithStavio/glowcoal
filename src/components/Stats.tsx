@@ -142,10 +142,10 @@ export default function Stats() {
         </div>
       </div>
 
-      {/* Benefits Section - Split Panel */}
-      <div className="split-panel">
+      {/* Benefits Section - Split Panel with Overlapping */}
+      <div className="split-panel relative">
         {/* Orange Panel with benefits */}
-        <div className="bg-orange dot-pattern py-16 px-8 lg:px-16">
+        <div className="bg-orange dot-pattern py-16 px-8 lg:px-16 relative">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -165,11 +165,16 @@ export default function Stats() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-4"
+                  className="flex items-start gap-4 group"
                 >
-                  <span className="inline-flex items-center justify-center w-6 h-6 bg-black-700 text-white rounded-full text-sm font-bold flex-shrink-0 mt-1">✓</span>
+                  <motion.span
+                    className="inline-flex items-center justify-center w-7 h-7 bg-black-700 text-white rounded-full text-sm font-bold flex-shrink-0 mt-1 shadow-lg"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    ✓
+                  </motion.span>
                   <div>
-                    <h4 className="text-black-700 font-bold text-lg">{benefit.title}</h4>
+                    <h4 className="text-black-700 font-bold text-lg group-hover:text-black-600 transition-colors">{benefit.title}</h4>
                     <p className="text-black-700/70">{benefit.description}</p>
                   </div>
                 </motion.div>
@@ -178,15 +183,18 @@ export default function Stats() {
           </motion.div>
         </div>
 
-        {/* Black Panel - Overlapping */}
-        <div className="bg-black-700 elevated-panel py-16 px-8 lg:px-16 lg:-mr-16 relative z-10 flex items-center">
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center lg:text-right"
-          >
+        {/* Black Panel - Overlapping with premium shadow */}
+        <motion.div
+          className="bg-black-700 py-16 px-8 lg:px-16 lg:-mr-24 relative z-10 flex items-center"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          style={{
+            boxShadow: '-40px 0 80px rgba(0, 0, 0, 0.4), -10px 0 30px rgba(0, 0, 0, 0.3)'
+          }}
+        >
+          <div className="text-center lg:text-right">
             <h3 className="text-2xl md:text-3xl font-bold text-red mb-6">
               الخيار الأمثل في سوريا
             </h3>
@@ -199,11 +207,16 @@ export default function Stats() {
               نظيفًا دون تنازل عن الطعم. طلبيات بالجملة مرحباً بكم - توصيل مجاني!
             </p>
 
-            <a href="#contact" className="btn-red inline-block">
+            <motion.a
+              href="#contact"
+              className="btn-red inline-block"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
               اطلب الآن
-            </a>
-          </motion.div>
-        </div>
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

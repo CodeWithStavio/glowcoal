@@ -19,11 +19,22 @@ const products = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative">
-      {/* Main Footer - Split Panel Layout like Diamond Machines */}
-      <div className="footer-split min-h-[500px]">
-        {/* Black Panel - Company Info (Right side in RTL) */}
-        <div className="bg-black-700 elevated-panel py-16 px-8 lg:px-12 flex items-center order-1 lg:order-2">
+    <footer id="contact" className="relative mt-20">
+      {/* Stacked Layer Effect - Creates visual depth */}
+      <div className="footer-stacked">
+        {/* Main Footer - Split Panel Layout like Diamond Machines */}
+        <div className="footer-split min-h-[500px] relative z-10">
+          {/* Black Panel - Company Info (Right side in RTL) */}
+          <motion.div
+            className="bg-black-700 py-16 px-8 lg:px-12 flex items-center order-1 lg:order-2 lg:-ml-20 relative z-20"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            style={{
+              boxShadow: '30px 0 80px rgba(0, 0, 0, 0.5), 10px 0 30px rgba(0, 0, 0, 0.3)'
+            }}
+          >
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -113,10 +124,10 @@ export default function Footer() {
               </a>
             </div>
           </motion.div>
-        </div>
+          </motion.div>
 
-        {/* Orange Panel - Links (Left side in RTL) */}
-        <div className="bg-orange map-dot-pattern py-16 px-8 lg:px-12 order-2 lg:order-1">
+          {/* Orange Panel - Links (Left side in RTL) */}
+          <div className="bg-orange map-dot-pattern py-16 px-8 lg:px-12 order-2 lg:order-1">
           <div className="h-full">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -229,6 +240,7 @@ export default function Footer() {
               </div>
             </motion.div>
           </div>
+        </div>
         </div>
       </div>
 
