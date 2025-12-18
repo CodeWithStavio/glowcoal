@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 export default function CTA() {
   return (
     <section className="relative">
-      {/* Red CTA Section */}
-      <div className="bg-red py-20 relative overflow-hidden">
+      {/* Orange CTA Section */}
+      <div className="bg-orange py-20 relative overflow-hidden">
         {/* Dot pattern background */}
-        <div className="absolute inset-0 dot-pattern opacity-50" />
+        <div className="absolute inset-0 dot-pattern opacity-30" />
 
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -18,10 +18,10 @@ export default function CTA() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black-700 mb-6">
                 هل تحتاج إلى فحم عالي الجودة بأسعار مناسبة؟
               </h2>
-              <p className="text-white/90 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+              <p className="text-black-700/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
                 قم بترقية تجربة الشواء الخاصة بك - اختر فحم Glow Coal فحم نشارة
                 الخشب المضغوط المصنع من أجود أنواع الخشب القاسي. أسعار مدروسة
                 تناسب الجميع!
@@ -51,7 +51,7 @@ export default function CTA() {
                   href="tel:0991230605"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-transparent border-2 border-white text-white font-bold px-10 py-4 rounded-md inline-flex items-center justify-center gap-3 hover:bg-white hover:text-red transition-colors duration-300 text-lg"
+                  className="bg-transparent border-2 border-black-700 text-black-700 font-bold px-10 py-4 rounded-md inline-flex items-center justify-center gap-3 hover:bg-black-700 hover:text-white transition-colors duration-300 text-lg"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -79,40 +79,22 @@ export default function CTA() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="mt-12 flex flex-wrap justify-center gap-8"
               >
-                <div className="flex items-center gap-2 text-white/90">
-                  <span className="w-8 h-8 bg-orange rounded-full flex items-center justify-center text-sm">📦</span>
+                <div className="flex items-center gap-2 text-black-700/90">
+                  <span className="w-8 h-8 bg-black-700 text-white rounded-full flex items-center justify-center text-sm">📦</span>
                   <span>توصيل مجاني</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/90">
-                  <span className="w-8 h-8 bg-orange rounded-full flex items-center justify-center text-sm">💰</span>
+                <div className="flex items-center gap-2 text-black-700/90">
+                  <span className="w-8 h-8 bg-black-700 text-white rounded-full flex items-center justify-center text-sm">💰</span>
                   <span>أسعار الجملة متاحة</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/90">
-                  <span className="w-8 h-8 bg-orange rounded-full flex items-center justify-center text-sm">✅</span>
+                <div className="flex items-center gap-2 text-black-700/90">
+                  <span className="w-8 h-8 bg-black-700 text-white rounded-full flex items-center justify-center text-sm">✅</span>
                   <span>جودة مضمونة</span>
                 </div>
               </motion.div>
             </motion.div>
           </div>
         </div>
-      </div>
-
-      {/* Seamless Transition to Footer - Matching Footer Split Panel */}
-      <div className="footer-split h-24 lg:h-32">
-        {/* Red to Orange gradient (matches footer orange panel - 35%) */}
-        <div
-          className="relative"
-          style={{
-            background: 'linear-gradient(180deg, #dc2626 0%, #f97316 100%)'
-          }}
-        />
-        {/* Red to Black gradient (matches footer black panel - 65%) */}
-        <div
-          className="relative"
-          style={{
-            background: 'linear-gradient(180deg, #dc2626 0%, #0a0a0a 100%)'
-          }}
-        />
       </div>
     </section>
   );
