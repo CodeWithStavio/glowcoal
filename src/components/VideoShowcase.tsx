@@ -1,19 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export default function VideoShowcase() {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlayClick = () => {
-    const video = document.getElementById('promo-video') as HTMLVideoElement;
-    if (video) {
-      video.play();
-      setIsPlaying(true);
-    }
-  };
-
   return (
     <section className="relative py-24 lg:py-32 bg-black-700 overflow-hidden">
       {/* Subtle gradient background */}
@@ -75,55 +64,15 @@ export default function VideoShowcase() {
                 {/* Aspect ratio container */}
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   <video
-                    id="promo-video"
                     className="absolute inset-0 w-full h-full object-cover"
                     poster="https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80"
-                    preload="metadata"
+                    autoPlay
+                    muted
+                    loop
                     playsInline
-                    controls={isPlaying}
-                    onPlay={() => setIsPlaying(true)}
-                    onPause={() => setIsPlaying(false)}
                   >
                     <source src="/videos/glowcoal-promo.mp4" type="video/mp4" />
                   </video>
-
-                  {/* Custom Play Button Overlay */}
-                  {!isPlaying && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer group/play"
-                      onClick={handlePlayClick}
-                    >
-                      {/* Ripple effect */}
-                      <div className="absolute w-32 h-32 rounded-full bg-orange/20 animate-ping" />
-                      <div className="absolute w-24 h-24 rounded-full bg-orange/30 animate-pulse" />
-
-                      {/* Play button */}
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="relative z-10 w-20 h-20 rounded-full bg-gradient-to-br from-orange to-red flex items-center justify-center shadow-lg shadow-orange/30"
-                      >
-                        <svg className="w-8 h-8 text-white mr-[-4px]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </motion.div>
-                    </motion.div>
-                  )}
-
-                  {/* Video title overlay */}
-                  {!isPlaying && (
-                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
-                      <div className="flex items-center gap-3">
-                        <div className="w-1 h-12 bg-gradient-to-b from-orange to-red rounded-full" />
-                        <div>
-                          <p className="text-white font-bold text-lg">فيديو ترويجي</p>
-                          <p className="text-gray-400 text-sm">Glow Coal - Premium Charcoal</p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
