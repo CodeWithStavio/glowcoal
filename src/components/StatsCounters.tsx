@@ -72,7 +72,7 @@ export default function StatsCounters() {
       <div className="relative py-20 overflow-hidden">
         {/* Background Image */}
         <Image
-          src="/images/stats-bg.jpg"
+          src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=1920&q=80"
           alt="خلفية"
           fill
           className="object-cover"
