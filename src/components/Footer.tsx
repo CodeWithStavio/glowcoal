@@ -136,16 +136,15 @@ export default function Footer() {
             >
               {/* Quick Links */}
               <div>
-                <h3 className="text-xl font-bold text-black-700 mb-6">روابط مفيدة</h3>
-                <div className="underline-black mb-6" />
+                <h3 className="text-xl font-bold text-white mb-6">روابط مفيدة</h3>
+                <div className="underline-orange mb-6" />
                 <ul className="space-y-3">
                   {quickLinks.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-black-700/80 hover:text-black-700 transition-colors flex items-center gap-2"
+                        className="text-white/80 hover:text-orange transition-colors"
                       >
-                        <span className="text-red text-sm">◄</span>
                         {link.label}
                       </Link>
                     </li>
@@ -155,13 +154,12 @@ export default function Footer() {
 
               {/* Products */}
               <div>
-                <h3 className="text-xl font-bold text-black-700 mb-6">منتجاتنا</h3>
-                <div className="underline-black mb-6" />
+                <h3 className="text-xl font-bold text-white mb-6">منتجاتنا</h3>
+                <div className="underline-orange mb-6" />
                 <ul className="space-y-3">
                   {products.map((product) => (
                     <li key={product}>
-                      <span className="text-black-700/80 flex items-center gap-2">
-                        <span className="text-red text-sm">◄</span>
+                      <span className="text-white/80">
                         {product}
                       </span>
                     </li>
@@ -171,19 +169,19 @@ export default function Footer() {
 
               {/* Social & Contact */}
               <div>
-                <h3 className="text-xl font-bold text-black-700 mb-6">تابعنا</h3>
-                <div className="underline-black mb-6" />
+                <h3 className="text-xl font-bold text-white mb-6">تابعنا</h3>
+                <div className="underline-orange mb-6" />
 
                 <div className="flex gap-4 mb-8">
                   <a
                     href="https://wa.me/963933292192"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-black-700/10 rounded-full flex items-center justify-center text-black-700 hover:bg-black-700 hover:text-orange transition-colors"
+                    className="w-10 h-10 flex items-center justify-center text-white hover:text-orange transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="h-7 w-7"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -192,11 +190,11 @@ export default function Footer() {
                   </a>
                   <a
                     href="mailto:info@glowcoal.com"
-                    className="w-12 h-12 bg-black-700/10 rounded-full flex items-center justify-center text-black-700 hover:bg-black-700 hover:text-orange transition-colors"
+                    className="w-10 h-10 flex items-center justify-center text-white hover:text-orange transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="h-7 w-7"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -211,11 +209,11 @@ export default function Footer() {
                   </a>
                   <a
                     href="tel:0991230605"
-                    className="w-12 h-12 bg-black-700/10 rounded-full flex items-center justify-center text-black-700 hover:bg-black-700 hover:text-orange transition-colors"
+                    className="w-10 h-10 flex items-center justify-center text-white hover:text-orange transition-colors"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="h-7 w-7"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -230,7 +228,7 @@ export default function Footer() {
                   </a>
                 </div>
 
-                <p className="text-black-700/70 text-sm">
+                <p className="text-white/70 text-sm">
                   دردشة مباشرة عبر واتساب
                   <br />
                   اتصال مباشر للاستفسارات
