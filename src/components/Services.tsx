@@ -301,7 +301,7 @@ export default function Services() {
                       scale: 1.02,
                       transition: { duration: 0.3 },
                     }}
-                    className="bg-black-700 rounded-xl p-6 cursor-pointer border border-red/20 relative overflow-hidden hover:border-orange/40 transition-colors"
+                    className="card-shine-strong bg-black-700 rounded-xl p-6 cursor-pointer border border-red/20 relative overflow-hidden hover:border-orange/40 transition-colors"
                   >
                     {/* Background Image */}
                     <div className="absolute inset-0 opacity-5">
@@ -360,7 +360,7 @@ export default function Services() {
                 key={product.id}
                 variants={productCardVariants}
                 whileHover={{ scale: 1.02, zIndex: 10 }}
-                className="relative h-[320px] overflow-hidden group cursor-pointer"
+                className="card-shine relative h-[320px] overflow-hidden group cursor-pointer"
               >
                 <Image
                   src={product.image}

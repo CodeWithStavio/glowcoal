@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import HeroSlider from "@/components/HeroSlider";
 import Services from "@/components/Services";
 import About from "@/components/About";
+import VideoShowcase from "@/components/VideoShowcase";
 import StatsCounters from "@/components/StatsCounters";
 import StatsBenefits from "@/components/StatsBenefits";
 import CTA from "@/components/CTA";
@@ -15,6 +16,7 @@ export default function Home() {
       <HeroSlider />
       <Services />
       <About />
+      <VideoShowcase />
       <StatsCounters />
       {/* Single world map background spans all orange sections */}
       <OrangeSectionsWrapper>
