@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const services = [
   {
@@ -13,6 +14,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     ),
+    image: "/images/service-quality.jpg",
   },
   {
     id: 2,
@@ -24,6 +26,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
       </svg>
     ),
+    image: "/images/service-delivery.jpg",
   },
   {
     id: 3,
@@ -35,6 +38,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
       </svg>
     ),
+    image: "/images/service-support.jpg",
   },
   {
     id: 4,
@@ -44,6 +48,43 @@ const services = [
     icon: (
       <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    image: "/images/about-factory.jpg",
+  },
+];
+
+const products = [
+  {
+    id: 1,
+    title: "فحم للشواء",
+    subtitle: "حرارة عالية ومستقرة",
+    image: "/images/product-bbq.jpg",
+    icon: (
+      <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+      </svg>
+    ),
+  },
+  {
+    id: 2,
+    title: "فحم للمطاعم",
+    subtitle: "الخيار المفضل للمحترفين",
+    image: "/images/product-restaurant.jpg",
+    icon: (
+      <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    ),
+  },
+  {
+    id: 3,
+    title: "فحم للتصدير",
+    subtitle: "شحن عالمي موثوق",
+    image: "/images/product-export.jpg",
+    icon: (
+      <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
       </svg>
     ),
   },
@@ -93,8 +134,16 @@ const productCardVariants = {
 export default function Services() {
   return (
     <section id="services" className="relative">
-      {/* Hero Image Section - Black 65% with charcoal gradient */}
-      <div className="relative h-[50vh] min-h-[400px] bg-gradient-to-br from-black-700 via-black-600 to-red-900/30 overflow-hidden">
+      {/* Hero Image Section */}
+      <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
+        <Image
+          src="/images/hero-charcoal-1.jpg"
+          alt="منتجاتنا"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black-700/80 via-black-700/60 to-black-700/90" />
+
         {/* Animated background particles */}
         <motion.div
           className="absolute inset-0"
@@ -186,28 +235,18 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 1, type: "spring", stiffness: 60 }}
               whileHover={{ scale: 1.05, rotate: 2 }}
-              className="overlap-image left-full top-1/4 w-[350px] h-[450px] -translate-x-1/2 overflow-hidden shadow-2xl bg-gradient-to-br from-red-600 to-orange-500"
+              className="overlap-image left-full top-1/4 w-[350px] h-[450px] -translate-x-1/2 overflow-hidden shadow-2xl"
             >
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center"
-                animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
-                transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
-              >
-                <div className="text-center text-white p-8">
-                  <motion.div
-                    className="text-6xl mb-4"
-                    animate={{ scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    🔥
-                  </motion.div>
-                  <h3 className="text-2xl font-bold mb-2">فحم مضغوط</h3>
-                  <p className="text-white/80">جودة عالية</p>
-                </div>
-              </motion.div>
+              <Image
+                src="/images/about-factory.jpg"
+                alt="فحم مضغوط"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black-700/80 to-transparent" />
               <div className="absolute bottom-4 right-4 left-4">
                 <motion.span
-                  className="bg-black-700 text-white px-3 py-1 rounded text-sm font-bold inline-block"
+                  className="bg-red text-white px-3 py-1 rounded text-sm font-bold inline-block"
                   whileHover={{ scale: 1.1 }}
                 >
                   جودة عالية
@@ -253,7 +292,7 @@ export default function Services() {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                {services.map((service, index) => (
+                {services.map((service) => (
                   <motion.div
                     key={service.id}
                     variants={cardVariants}
@@ -262,41 +301,53 @@ export default function Services() {
                       scale: 1.03,
                       transition: { duration: 0.3 },
                     }}
-                    className="glass-card rounded-xl p-6 cursor-pointer border border-gray-100"
+                    className="glass-card rounded-xl p-6 cursor-pointer border border-gray-100 relative overflow-hidden"
                   >
-                    {/* Icon */}
-                    <motion.div
-                      className="service-icon"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      {service.icon}
-                    </motion.div>
+                    {/* Background Image */}
+                    <div className="absolute inset-0 opacity-10">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
 
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-black-700 mb-3">
-                      {service.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                      {service.description}
-                    </p>
-
-                    {/* Read More Link */}
-                    <motion.a
-                      href="#contact"
-                      className="text-red font-medium text-sm inline-flex items-center gap-2"
-                      whileHover={{ x: -10, gap: "12px" }}
-                    >
-                      اقرأ أكثر
-                      <motion.span
-                        animate={{ x: [0, -5, 0] }}
-                        transition={{ duration: 1, repeat: Infinity }}
+                    <div className="relative z-10">
+                      {/* Icon */}
+                      <motion.div
+                        className="service-icon"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.6 }}
                       >
-                        ◄
-                      </motion.span>
-                    </motion.a>
+                        {service.icon}
+                      </motion.div>
+
+                      {/* Title */}
+                      <h3 className="text-xl font-bold text-black-700 mb-3">
+                        {service.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        {service.description}
+                      </p>
+
+                      {/* Read More Link */}
+                      <motion.a
+                        href="#contact"
+                        className="text-red font-medium text-sm inline-flex items-center gap-2"
+                        whileHover={{ x: -10, gap: "12px" }}
+                      >
+                        اقرأ أكثر
+                        <motion.span
+                          animate={{ x: [0, -5, 0] }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                        >
+                          ◄
+                        </motion.span>
+                      </motion.a>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -313,93 +364,41 @@ export default function Services() {
             viewport={{ once: true }}
             variants={containerVariants}
           >
-            {/* Product Card 1 - فحم للشواء */}
-            <motion.div
-              variants={productCardVariants}
-              whileHover={{ scale: 1.05, zIndex: 10 }}
-              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-red-700 via-red-600 to-orange-600 cursor-pointer"
-            >
+            {products.map((product) => (
               <motion.div
-                className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/30 transition-colors duration-500"
-                whileHover={{ opacity: 0.3 }}
-              />
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                key={product.id}
+                variants={productCardVariants}
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                className="relative h-[320px] overflow-hidden group cursor-pointer"
+              >
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
                 <motion.div
-                  className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3"
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                  </svg>
-                </motion.div>
-                <motion.h4
-                  className="text-white font-bold text-xl"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  فحم للشواء
-                </motion.h4>
-                <p className="text-gray-200 text-sm mt-2">حرارة عالية ومستقرة</p>
-              </div>
-            </motion.div>
-
-            {/* Product Card 2 - فحم للمطاعم */}
-            <motion.div
-              variants={productCardVariants}
-              whileHover={{ scale: 1.05, zIndex: 10 }}
-              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-orange-600 via-orange-500 to-red-500 cursor-pointer"
-            >
-              <motion.div
-                className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/30 transition-colors duration-500"
-              />
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <motion.div
-                  className="w-12 h-12 bg-orange/30 flex items-center justify-center mb-3"
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </motion.div>
-                <motion.h4
-                  className="text-white font-bold text-xl"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  فحم للمطاعم
-                </motion.h4>
-                <p className="text-gray-200 text-sm mt-2">الخيار المفضل للمحترفين</p>
-              </div>
-            </motion.div>
-
-            {/* Product Card 3 - فحم للتصدير */}
-            <motion.div
-              variants={productCardVariants}
-              whileHover={{ scale: 1.05, zIndex: 10 }}
-              className="relative h-[320px] overflow-hidden group bg-gradient-to-br from-black-700 via-black-600 to-red-900 cursor-pointer"
-            >
-              <motion.div
-                className="absolute inset-0 bg-black-700/30 group-hover:bg-black-700/10 transition-colors duration-500"
-              />
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <motion.div
-                  className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3"
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                  </svg>
-                </motion.div>
-                <motion.h4
-                  className="text-white font-bold text-xl"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  فحم للتصدير
-                </motion.h4>
-                <p className="text-gray-200 text-sm mt-2">شحن عالمي موثوق</p>
-              </div>
-            </motion.div>
+                  className="absolute inset-0 bg-black-700/50 group-hover:bg-black-700/30 transition-colors duration-500"
+                  whileHover={{ opacity: 0.3 }}
+                />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <motion.div
+                    className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3"
+                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {product.icon}
+                  </motion.div>
+                  <motion.h4
+                    className="text-white font-bold text-xl"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {product.title}
+                  </motion.h4>
+                  <p className="text-gray-200 text-sm mt-2">{product.subtitle}</p>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 const stats = [
   {
@@ -86,8 +87,17 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 export default function Stats() {
   return (
     <section id="stats" className="relative">
-      {/* Stats Counter Section - Black with gradient */}
-      <div className="bg-gradient-to-br from-black-700 via-black-600 to-red-900/20 py-20 relative overflow-hidden">
+      {/* Stats Counter Section - with background image */}
+      <div className="relative py-20 overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/images/stats-bg.jpg"
+          alt="خلفية"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black-700/85" />
+
         {/* Animated background effects */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl" />

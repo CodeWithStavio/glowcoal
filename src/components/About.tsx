@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -70,10 +71,17 @@ export default function About() {
             className="h-full flex flex-col justify-center"
           >
             {/* Visual Card - OVERLAPPING ON TOP */}
-            <div className="overlap-image relative h-[400px] lg:h-[500px] overflow-hidden shadow-2xl lg:-mr-32 bg-gradient-to-br from-orange-500 via-red-600 to-black-700">
-              <div className="absolute inset-0 flex items-center justify-center">
+            <div className="overlap-image relative h-[400px] lg:h-[500px] overflow-hidden shadow-2xl lg:-mr-32">
+              <Image
+                src="/images/about-factory.jpg"
+                alt="فحم مضغوط طبيعي"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black-700/80 via-black-700/20 to-transparent" />
+
+              <div className="absolute inset-0 flex items-end justify-center pb-16">
                 <div className="text-center text-white p-8">
-                  <div className="text-8xl mb-6">🔥</div>
                   <h3 className="text-3xl font-bold mb-4">فحم مضغوط طبيعي</h3>
                   <p className="text-white/80 text-lg">صديق للبيئة - جودة عالية</p>
                 </div>

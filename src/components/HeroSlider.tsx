@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -12,24 +13,21 @@ import "swiper/css/pagination";
 const slides = [
   {
     id: 1,
-    gradient: "from-black-700 via-red-900/50 to-black-700",
+    image: "/images/hero-charcoal-1.jpg",
     title: "فحم نشارة خشب طبيعي 100%",
     subtitle: "بدون مواد كيميائية، بدون دخان، بدون رائحة",
-    icon: "🔥",
   },
   {
     id: 2,
-    gradient: "from-black-700 via-orange-900/40 to-black-700",
+    image: "/images/hero-charcoal-2.jpg",
     title: "تجربة شواء غير تقليدية",
     subtitle: "حرارة مستقرة وعالية لمدة 5-6 ساعات",
-    icon: "♨️",
   },
   {
     id: 3,
-    gradient: "from-black-700 via-red-800/40 to-black-700",
+    image: "/images/hero-charcoal-3.jpg",
     title: "الثورة البيئية والاقتصادية",
     subtitle: "فحم صديق للبيئة مصنوع من نفايات الخشب المُعاد تدويرها",
-    icon: "🌿",
   },
 ];
 
@@ -57,14 +55,23 @@ export default function HeroSlider() {
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id}>
             <div className="relative h-full w-full">
-              {/* Background Gradient with animated effect */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`}>
-                {/* Animated fire particles effect */}
-                <div className="absolute inset-0 overflow-hidden">
-                  <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl animate-pulse" />
-                  <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
-                  <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-red-500/5 rounded-full blur-2xl animate-pulse delay-500" />
-                </div>
+              {/* Background Image */}
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+
+              {/* Dark Overlay with gradient */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black-700/70 via-black-700/50 to-black-700/80" />
+
+              {/* Animated fire particles effect */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl animate-pulse" />
+                <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
+                <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-red-500/5 rounded-full blur-2xl animate-pulse delay-500" />
               </div>
 
               {/* Content */}
@@ -77,16 +84,6 @@ export default function HeroSlider() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="hero-content-box max-w-3xl mx-auto text-center"
                   >
-                    {/* Icon */}
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="text-6xl md:text-8xl mb-6"
-                    >
-                      {slide.icon}
-                    </motion.div>
-
                     <motion.h1
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
