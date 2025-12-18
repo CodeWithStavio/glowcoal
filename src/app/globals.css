@@ -413,23 +413,36 @@ body {
 }
 
 /* ========================================
-   SCROLLBAR STYLING
+   SCROLLBAR STYLING - Professional & Minimal
    ======================================== */
+/* Hide horizontal scrollbar */
+html, body {
+  overflow-x: hidden;
+}
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--black);
+  background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--red), var(--orange));
-  border-radius: 5px;
+  background: #333;
+  border-radius: 4px;
+  border: 2px solid #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--orange), var(--red));
+  background: #444;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333 #1a1a1a;
 }
 
 /* ========================================
@@ -689,78 +702,3 @@ body {
   animation: rotate-slow 30s linear infinite;
 }
 
-/* ========================================
-   SECTION CONNECTORS - Diamond Machines Style
-   ======================================== */
-
-/* Gradient strip connector between sections */
-.section-connector-strip {
-  height: 8px;
-  background: linear-gradient(90deg, var(--red), var(--orange), var(--red));
-  box-shadow:
-    0 4px 20px rgba(220, 38, 38, 0.4),
-    0 0 40px rgba(249, 115, 22, 0.3);
-  position: relative;
-}
-
-.section-connector-strip::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer 3s linear infinite;
-  background-size: 200% 100%;
-}
-
-/* Gradient fade connector - creates seamless color transitions */
-.section-connector-fade {
-  height: 80px;
-  background: linear-gradient(180deg, var(--red) 0%, var(--orange) 100%);
-  position: relative;
-}
-
-.section-connector-fade::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    transparent 20%,
-    transparent 80%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
-}
-
-/* Connector from black to red with glow */
-.connector-black-to-red {
-  height: 6px;
-  background: linear-gradient(90deg,
-    var(--black) 0%,
-    var(--red) 30%,
-    var(--orange) 70%,
-    var(--red) 100%
-  );
-  box-shadow: 0 4px 30px rgba(220, 38, 38, 0.5);
-}
-
-/* Connector from orange to red */
-.connector-orange-to-red {
-  height: 6px;
-  background: linear-gradient(90deg,
-    var(--orange) 0%,
-    var(--red) 50%,
-    var(--orange) 100%
-  );
-  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
-}
-
-/* Glowing accent bar - like Diamond Machines golden accents */
-.accent-bar-glow {
-  height: 4px;
-  background: linear-gradient(90deg, var(--red), var(--orange));
-  box-shadow:
-    0 0 10px var(--red),
-    0 0 20px var(--orange),
-    0 0 30px rgba(249, 115, 22, 0.5);
-  animation: pulse-glow 2s ease-in-out infinite;
-}
