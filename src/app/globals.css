@@ -336,7 +336,7 @@ a[href^="https://wa.me"],
 
 @media (min-width: 1024px) {
   .footer-split {
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 28% 72%;
   }
 }
 
