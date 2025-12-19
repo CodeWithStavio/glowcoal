@@ -110,9 +110,9 @@ export default function VideoShowcase() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="absolute -bottom-4 -left-4 lg:-left-8 bg-orange text-white px-6 py-3 rounded-xl shadow-lg z-20"
+              className="absolute -bottom-4 -left-4 lg:-left-8 bg-orange text-white px-5 py-3 rounded-xl shadow-lg z-20"
             >
-              <span className="font-bold text-lg">صناعة سورية</span>
+              <span className="font-bold text-sm lg:text-base">نستورد فحم من مختلف بلاد العالم</span>
             </motion.div>
           </motion.div>
 

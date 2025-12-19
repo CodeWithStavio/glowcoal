@@ -99,7 +99,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:info@glowcoal.com"
+                href="mailto:contact@glowcoal.com"
                 className="flex items-center gap-4 text-white hover:text-orange transition-colors group"
               >
                 <span className="w-10 h-10 bg-red/20 rounded-full flex items-center justify-center group-hover:bg-red transition-colors">
@@ -118,7 +118,7 @@ export default function Footer() {
                     />
                   </svg>
                 </span>
-                <span className="text-lg">info@glowcoal.com</span>
+                <span className="text-lg">contact@glowcoal.com</span>
               </a>
             </div>
           </motion.div>
@@ -189,7 +189,7 @@ export default function Footer() {
                     </svg>
                   </a>
                   <a
-                    href="mailto:info@glowcoal.com"
+                    href="mailto:contact@glowcoal.com"
                     className="w-10 h-10 flex items-center justify-center text-white hover:text-orange transition-colors"
                   >
                     <svg

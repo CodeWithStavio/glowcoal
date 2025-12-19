@@ -1,7 +1,29 @@
 "use client";
 
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
+import "swiper/css";
+import "swiper/css/effect-fade";
+
+// Hero slider images
+const heroSlides = [
+  {
+    id: 1,
+    image: "https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80",
+  },
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80",
+  },
+  {
+    id: 3,
+    image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1920&q=80",
+  },
+];
 
 const services = [
   {
@@ -132,21 +154,46 @@ const productCardVariants = {
 };
 
 export default function Services() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
   return (
     <section id="services" className="relative">
-      {/* Hero Image Section */}
+      {/* Hero Image Slider Section */}
       <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80"
-          alt="منتجاتنا"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black-700/80 via-black-700/60 to-black-700/90" />
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
+          className="h-full w-full"
+        >
+          {heroSlides.map((slide, index) => (
+            <SwiperSlide key={slide.id}>
+              <div className="relative h-full w-full">
+                <Image
+                  src={slide.image}
+                  alt="منتجاتنا"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  priority={index === 0}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black-700/80 via-black-700/60 to-black-700/90 pointer-events-none z-10" />
 
         {/* Animated background particles */}
         <motion.div
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -169,7 +216,8 @@ export default function Services() {
           />
         </motion.div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* Content */}
+        <div className="absolute inset-0 flex items-center justify-center z-20">
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -182,7 +230,7 @@ export default function Services() {
               animate={{ textShadow: ["0 0 20px rgba(249,115,22,0)", "0 0 40px rgba(249,115,22,0.5)", "0 0 20px rgba(249,115,22,0)"] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              منتجاتنا
+              الثورة البيئية والاقتصادية
             </motion.h2>
             <motion.p
               className="text-orange text-xl md:text-2xl"
@@ -190,9 +238,21 @@ export default function Services() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              فحم مضغوط عالي الجودة
+              فحم صديق للبيئة مصنوع من نفايات الخشب المُعاد تدويرها
             </motion.p>
           </motion.div>
+        </div>
+
+        {/* Slide indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {heroSlides.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                activeSlide === index ? "bg-orange w-6" : "bg-white/50"
+              }`}
+            />
+          ))}
         </div>
       </div>
 
