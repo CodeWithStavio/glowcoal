@@ -25,6 +25,23 @@ body {
   color: #ffffff;
   direction: rtl;
   text-align: right;
+  /* Disable text selection site-wide */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection on contact/communication elements */
+.selectable,
+a[href^="tel:"],
+a[href^="mailto:"],
+a[href^="https://wa.me"],
+[dir="ltr"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 /* ========================================
