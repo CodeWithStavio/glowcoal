@@ -277,7 +277,7 @@ export default function Footer() {
               © {new Date().getFullYear()} GlowCoal. جميع الحقوق محفوظة.
             </p>
             <p className="text-gray-400 text-sm">
-              فحم نشارة خشب طبيعي 100%
+              Made by <a href="https://coddra.com" target="_blank" rel="noopener noreferrer" className="text-orange hover:text-white transition-colors">Coddra Ltd.</a>
             </p>
           </div>
         </div>
