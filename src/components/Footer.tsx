@@ -43,8 +43,8 @@ export default function Footer() {
             {/* Logo */}
             <Link href="/" className="inline-block mb-8">
               <span className="text-4xl font-bold">
-                <span className="text-orange">جلو</span>
-                <span className="text-white">كول</span>
+                <span className="text-orange">Glow</span>
+                <span className="text-white">Coal</span>
               </span>
             </Link>
 
@@ -274,7 +274,7 @@ export default function Footer() {
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} جلو كول - Glow Coal. جميع الحقوق محفوظة.
+              © {new Date().getFullYear()} GlowCoal. جميع الحقوق محفوظة.
             </p>
             <p className="text-gray-400 text-sm">
               فحم نشارة خشب طبيعي 100%

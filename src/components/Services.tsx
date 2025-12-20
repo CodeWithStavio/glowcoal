@@ -13,15 +13,15 @@ import "swiper/css/effect-fade";
 const heroSlides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=80",
+    image: "/images/charcoal-production.webp",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80",
+    image: "/images/charcoal-quality.webp",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1920&q=80",
+    image: "/images/charcoal-bbq.webp",
   },
 ];
 
@@ -36,7 +36,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     ),
-    image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80",
+    image: "/images/charcoal-restaurant.webp",
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
       </svg>
     ),
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
+    image: "/images/charcoal-production.webp",
   },
   {
     id: 3,
@@ -60,19 +60,19 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
       </svg>
     ),
-    image: "https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=800&q=80",
+    image: "/images/charcoal-quality.webp",
   },
   {
     id: 4,
-    title: "التصدير",
+    title: "الاستيراد العالمي",
     description:
-      "نصدر منتجاتنا إلى جميع أنحاء العالم مع الالتزام بأعلى معايير الجودة والتغليف.",
+      "نستورد من جميع أرجاء العالم لنوفر لكم أجود أنواع الفحم بأفضل الأسعار.",
     icon: (
       <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80",
+    image: "/images/service-export.webp",
   },
 ];
 
@@ -81,7 +81,7 @@ const products = [
     id: 1,
     title: "فحم للشواء",
     subtitle: "حرارة عالية ومستقرة",
-    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
+    image: "/images/charcoal-bbq.webp",
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
@@ -92,7 +92,7 @@ const products = [
     id: 2,
     title: "فحم للمطاعم",
     subtitle: "الخيار المفضل للمحترفين",
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
+    image: "/images/charcoal-restaurant.webp",
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -101,9 +101,9 @@ const products = [
   },
   {
     id: 3,
-    title: "فحم للتصدير",
-    subtitle: "شحن عالمي موثوق",
-    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=80",
+    title: "نستورد من جميع أرجاء العالم",
+    subtitle: "شراكات عالمية موثوقة",
+    image: "/images/shipping-global.webp",
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
@@ -298,7 +298,7 @@ export default function Services() {
               className="overlap-image left-full top-1/4 w-[350px] h-[450px] -translate-x-1/2 overflow-hidden shadow-2xl"
             >
               <Image
-                src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80"
+                src="/images/charcoal-factory.webp"
                 alt="فحم مضغوط"
                 fill
                 className="object-cover"
