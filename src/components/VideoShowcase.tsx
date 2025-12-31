@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function VideoShowcase() {
+  const t = useTranslations("video");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -19,10 +21,10 @@ export default function VideoShowcase() {
   };
 
   const features = [
-    "فحم نشارة خشب 100% طبيعي",
-    "بدون مواد كيميائية أو روائح",
-    "حرارة ثابتة لمدة 5-6 ساعات",
-    "صديق للبيئة ومستدام",
+    t("features.feature1"),
+    t("features.feature2"),
+    t("features.feature3"),
+    t("features.feature4"),
   ];
 
   return (
@@ -43,10 +45,10 @@ export default function VideoShowcase() {
           className="text-center mb-16"
         >
           <span className="text-orange text-lg font-medium mb-2 block">
-            شاهد الفرق
+            {t("sectionLabel")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            تجربة فحم Glow Coal
+            {t("title")}
           </h2>
           <div className="underline-red mx-auto" />
         </motion.div>
@@ -112,7 +114,7 @@ export default function VideoShowcase() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="absolute -bottom-4 -left-4 lg:-left-8 bg-orange text-white px-5 py-3 rounded-xl shadow-lg z-20"
             >
-              <span className="font-bold text-sm lg:text-base">نستورد فحم من مختلف بلاد العالم</span>
+              <span className="font-bold text-sm lg:text-base">{t("badge")}</span>
             </motion.div>
           </motion.div>
 
@@ -125,13 +127,11 @@ export default function VideoShowcase() {
             className="order-2 lg:order-1"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              اكتشف جودة الفحم الفاخر
+              {t("contentTitle")}
             </h3>
 
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              شاهد كيف يوفر فحم Glow Coal تجربة شواء استثنائية. فحم نشارة الخشب
-              المضغوط يقدم حرارة متساوية ومستدامة، بدون دخان أو روائح مزعجة،
-              مما يجعله الخيار الأمثل للمطاعم والمنازل على حد سواء.
+              {t("description")}
             </p>
 
             {/* Features List */}
@@ -158,10 +158,10 @@ export default function VideoShowcase() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#contact" className="btn-orange text-center">
-                اطلب الآن
+                {t("orderNow")}
               </a>
               <a href="#services" className="btn-outline-orange text-center">
-                تعرف على منتجاتنا
+                {t("learnProducts")}
               </a>
             </div>
           </motion.div>

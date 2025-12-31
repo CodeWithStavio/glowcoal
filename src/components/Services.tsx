@@ -5,122 +5,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-// Hero slider images
 const heroSlides = [
-  {
-    id: 1,
-    image: "/images/charcoal-production.webp",
-  },
-  {
-    id: 2,
-    image: "/images/charcoal-quality.webp",
-  },
-  {
-    id: 3,
-    image: "/images/charcoal-bbq.webp",
-  },
+  { id: 1, image: "/images/charcoal-production.webp" },
+  { id: 2, image: "/images/charcoal-quality.webp" },
+  { id: 3, image: "/images/charcoal-bbq.webp" },
 ];
 
-const services = [
-  {
-    id: 1,
-    title: "التصنيع",
-    description:
-      "فحم مضغوط مصنع من أجود أنواع الخشب الصلب ذو محتوى كربوني عالي ووقت احتراق طويل.",
-    icon: (
-      <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
-    ),
-    image: "/images/charcoal-restaurant.webp",
-  },
-  {
-    id: 2,
-    title: "التوريد",
-    description:
-      "نستورد مختلف أنواع الفحم المضغوط من أفضل الشركات العالمية بكميات كبيرة وثابتة.",
-    icon: (
-      <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-      </svg>
-    ),
-    image: "/images/charcoal-production.webp",
-  },
-  {
-    id: 3,
-    title: "الجودة",
-    description:
-      "الكربون الثابت العالي (أكثر من 90%) يضمن حرارة قوية ومتناسقة مع رماد منخفض.",
-    icon: (
-      <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-      </svg>
-    ),
-    image: "/images/charcoal-quality.webp",
-  },
-  {
-    id: 4,
-    title: "الاستيراد العالمي",
-    description:
-      "نستورد من جميع أرجاء العالم لنوفر لكم أجود أنواع الفحم بأفضل الأسعار.",
-    icon: (
-      <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    image: "/images/service-export.webp",
-  },
-];
-
-const products = [
-  {
-    id: 1,
-    title: "فحم للشواء",
-    subtitle: "حرارة عالية ومستقرة",
-    image: "/images/charcoal-bbq.webp",
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-      </svg>
-    ),
-  },
-  {
-    id: 2,
-    title: "فحم للمطاعم",
-    subtitle: "الخيار المفضل للمحترفين",
-    image: "/images/charcoal-restaurant.webp",
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-  },
-  {
-    id: 3,
-    title: "نستورد من جميع أرجاء العالم",
-    subtitle: "شراكات عالمية موثوقة",
-    image: "/images/shipping-global.webp",
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-      </svg>
-    ),
-  },
-];
-
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
   },
 };
 
@@ -130,12 +30,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     rotateX: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 12,
-      duration: 0.8,
-    },
+    transition: { type: "spring", stiffness: 100, damping: 12, duration: 0.8 },
   },
 };
 
@@ -145,16 +40,114 @@ const productCardVariants = {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 80,
-      damping: 15,
-    },
+    transition: { type: "spring", stiffness: 80, damping: 15 },
   },
 };
 
 export default function Services() {
+  const t = useTranslations("services");
   const [activeSlide, setActiveSlide] = useState(0);
+
+  const services = [
+    {
+      id: 1,
+      title: t("cards.manufacturing.title"),
+      description: t("cards.manufacturing.description"),
+      icon: (
+        <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+        </svg>
+      ),
+      image: "/images/charcoal-restaurant.webp",
+    },
+    {
+      id: 2,
+      title: t("cards.supply.title"),
+      description: t("cards.supply.description"),
+      icon: (
+        <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+      ),
+      image: "/images/charcoal-production.webp",
+    },
+    {
+      id: 3,
+      title: t("cards.quality.title"),
+      description: t("cards.quality.description"),
+      icon: (
+        <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+      ),
+      image: "/images/charcoal-quality.webp",
+    },
+    {
+      id: 4,
+      title: t("cards.globalImport.title"),
+      description: t("cards.globalImport.description"),
+      icon: (
+        <svg className="w-8 h-8 text-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      image: "/images/service-export.webp",
+    },
+  ];
+
+  const products = [
+    {
+      id: 1,
+      title: t("products.bbq.title"),
+      subtitle: t("products.bbq.subtitle"),
+      image: "/images/charcoal-bbq.webp",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+        </svg>
+      ),
+    },
+    {
+      id: 2,
+      title: t("products.restaurant.title"),
+      subtitle: t("products.restaurant.subtitle"),
+      image: "/images/charcoal-restaurant.webp",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      ),
+    },
+    {
+      id: 3,
+      title: t("products.global.title"),
+      subtitle: t("products.global.subtitle"),
+      image: "/images/shipping-global.webp",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+      ),
+    },
+  ];
+
+  const verticalTextWords = [
+    t("verticalText.word1"),
+    t("verticalText.word2"),
+    t("verticalText.word3"),
+    t("verticalText.word4"),
+    t("verticalText.word5"),
+    t("verticalText.word6"),
+  ];
+
+  const features = [
+    t("features.noChemicals"),
+    t("features.noSmoke"),
+    t("features.noOdor"),
+    t("features.longBurn"),
+    t("features.stableHeat"),
+    t("features.lowAsh"),
+  ];
 
   return (
     <section id="services" className="relative">
@@ -164,10 +157,7 @@ export default function Services() {
           modules={[Autoplay, EffectFade]}
           effect="fade"
           fadeEffect={{ crossFade: true }}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           loop={true}
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
           className="h-full w-full"
@@ -177,7 +167,7 @@ export default function Services() {
               <div className="relative h-full w-full">
                 <Image
                   src={slide.image}
-                  alt="منتجاتنا"
+                  alt={t("productsAlt")}
                   fill
                   sizes="100vw"
                   className="object-cover"
@@ -188,10 +178,8 @@ export default function Services() {
           ))}
         </Swiper>
 
-        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black-700/80 via-black-700/60 to-black-700/90 pointer-events-none z-10" />
 
-        {/* Animated background particles */}
         <motion.div
           className="absolute inset-0 pointer-events-none z-10"
           initial={{ opacity: 0 }}
@@ -200,23 +188,16 @@ export default function Services() {
         >
           <motion.div
             className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0.4, 0.2],
-            }}
+            animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
             className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-600/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.3, 0.5, 0.3],
-            }}
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           />
         </motion.div>
 
-        {/* Content */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -230,7 +211,7 @@ export default function Services() {
               animate={{ textShadow: ["0 0 20px rgba(249,115,22,0)", "0 0 40px rgba(249,115,22,0.5)", "0 0 20px rgba(249,115,22,0)"] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              الثورة البيئية والاقتصادية
+              {t("heroTitle")}
             </motion.h2>
             <motion.p
               className="text-orange text-xl md:text-2xl"
@@ -238,12 +219,11 @@ export default function Services() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              فحم صديق للبيئة مصنوع من نفايات الخشب المُعاد تدويرها
+              {t("heroSubtitle")}
             </motion.p>
           </motion.div>
         </div>
 
-        {/* Slide indicators */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
           {heroSlides.map((_, index) => (
             <div
@@ -258,9 +238,8 @@ export default function Services() {
 
       {/* Services Grid Section with Vertical Text */}
       <div className="relative bg-black-700">
-        {/* Main Content */}
         <div className="flex flex-col lg:flex-row">
-          {/* Vertical Text Sidebar - Black */}
+          {/* Vertical Text Sidebar */}
           <div className="hidden lg:flex w-[180px] bg-black-700 items-center justify-center relative min-h-[800px]">
             <div className="vertical-text">
               <motion.div
@@ -270,7 +249,7 @@ export default function Services() {
                 transition={{ duration: 1, type: "spring" }}
                 className="space-y-2"
               >
-                {["تمكين", "إنتاجك", "بحلول", "متكاملة", "ومبتكرة", "وموثوقة"].map((text, i) => (
+                {verticalTextWords.map((text, i) => (
                   <motion.span
                     key={text}
                     className={`text-4xl font-bold block ${
@@ -288,7 +267,6 @@ export default function Services() {
               </motion.div>
             </div>
 
-            {/* Overlapping Image - ON TOP of cards */}
             <motion.div
               initial={{ opacity: 0, x: -100, rotate: -10 }}
               whileInView={{ opacity: 1, x: 0, rotate: 0 }}
@@ -299,7 +277,7 @@ export default function Services() {
             >
               <Image
                 src="/images/charcoal-factory.webp"
-                alt="فحم مضغوط"
+                alt={t("charcoalAlt")}
                 fill
                 className="object-cover"
               />
@@ -309,7 +287,7 @@ export default function Services() {
                   className="bg-red text-white px-3 py-1 rounded text-sm font-bold inline-block"
                   whileHover={{ scale: 1.1 }}
                 >
-                  جودة عالية
+                  {t("highQuality")}
                 </motion.span>
               </div>
             </motion.div>
@@ -318,7 +296,6 @@ export default function Services() {
           {/* Services Cards Grid */}
           <div className="flex-1 py-16 px-8 lg:px-16 lg:pr-[200px] bg-black-600">
             <div className="max-w-4xl">
-              {/* Section Header */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -330,10 +307,10 @@ export default function Services() {
                   className="text-orange text-lg font-medium mb-2 block"
                   whileHover={{ x: 10 }}
                 >
-                  خدماتنا
+                  {t("sectionLabel")}
                 </motion.span>
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  نستورد مختلف أنواع الفحم المضغوط
+                  {t("title")}
                 </h2>
                 <motion.div
                   className="underline-orange"
@@ -344,7 +321,6 @@ export default function Services() {
                 />
               </motion.div>
 
-              {/* Cards Grid */}
               <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 variants={containerVariants}
@@ -356,46 +332,24 @@ export default function Services() {
                   <motion.div
                     key={service.id}
                     variants={cardVariants}
-                    whileHover={{
-                      y: -10,
-                      scale: 1.02,
-                      transition: { duration: 0.3 },
-                    }}
+                    whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
                     className="card-shine-strong bg-black-700 rounded-xl p-6 cursor-pointer border border-red/20 relative overflow-hidden hover:border-orange/40 transition-colors"
                   >
-                    {/* Background Image */}
                     <div className="absolute inset-0 opacity-5">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        className="object-cover"
-                      />
+                      <Image src={service.image} alt={service.title} fill className="object-cover" />
                     </div>
-
                     <div className="relative z-10">
-                      {/* Icon */}
                       <div className="w-14 h-14 bg-orange/20 rounded-xl flex items-center justify-center mb-4">
                         {service.icon}
                       </div>
-
-                      {/* Title */}
-                      <h3 className="text-xl font-bold text-white mb-3">
-                        {service.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                        {service.description}
-                      </p>
-
-                      {/* Read More Link */}
+                      <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed mb-4">{service.description}</p>
                       <motion.a
                         href="#contact"
                         className="text-orange font-medium text-sm inline-flex items-center gap-2"
                         whileHover={{ x: -10, gap: "12px" }}
                       >
-                        اقرأ أكثر
+                        {t("readMore")}
                         <span>◄</span>
                       </motion.a>
                     </div>
@@ -433,9 +387,7 @@ export default function Services() {
                   <div className="w-12 h-12 bg-red/30 flex items-center justify-center mb-3">
                     {product.icon}
                   </div>
-                  <h4 className="text-white font-bold text-xl">
-                    {product.title}
-                  </h4>
+                  <h4 className="text-white font-bold text-xl">{product.title}</h4>
                   <p className="text-gray-300 text-sm mt-2">{product.subtitle}</p>
                 </div>
               </motion.div>
@@ -444,7 +396,7 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Features Strip - Red 20% */}
+      {/* Features Strip */}
       <div className="bg-red py-8 overflow-hidden">
         <div className="container-custom">
           <motion.div
@@ -454,14 +406,7 @@ export default function Services() {
             viewport={{ once: true }}
             variants={containerVariants}
           >
-            {[
-              "بدون مواد كيميائية",
-              "بدون دخان",
-              "بدون رائحة",
-              "احتراق طويل",
-              "حرارة ثابتة",
-              "رماد أبيض قليل",
-            ].map((feature, index) => (
+            {features.map((feature, index) => (
               <motion.div
                 key={feature}
                 variants={{

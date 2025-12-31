@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function HeroSlider() {
+  const t = useTranslations("hero");
+
   return (
     <section id="home" className="relative h-screen max-h-[900px] min-h-[600px] bg-black-700 overflow-hidden">
       {/* Subtle ambient glow */}
@@ -40,7 +43,7 @@ export default function HeroSlider() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
             >
-              الثورة البيئية والاقتصادية
+              {t("title")}
             </motion.h1>
 
             <motion.p
@@ -49,7 +52,7 @@ export default function HeroSlider() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-xl md:text-2xl text-orange mb-12 max-w-2xl mx-auto"
             >
-              فحم صديق للبيئة مصنوع من نفايات الخشب المُعاد تدويرها
+              {t("subtitle")}
             </motion.p>
 
             <motion.div
@@ -59,10 +62,10 @@ export default function HeroSlider() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <a href="#services" className="btn-red">
-                اكتشف منتجاتنا
+                {t("discoverProducts")}
               </a>
               <a href="#contact" className="btn-outline-orange">
-                تواصل معنا
+                {t("contactUs")}
               </a>
             </motion.div>
           </motion.div>
