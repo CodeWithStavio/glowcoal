@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations("about");
+
   return (
     <section id="about" className="relative section-layered">
       {/* Full-width Black Content Section */}
@@ -17,25 +20,16 @@ export default function About() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-orange text-lg font-medium mb-2 block">
-                من نحن
+                {t("sectionLabel")}
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                أهمية البيئة والغطاء النباتي
+                {t("title")}
               </h2>
               <div className="underline-red mb-8" />
 
               <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-                <p>
-                  في عالم يتسارع فيه نبض الحياة، يبقى الغطاء النباتي عماد الصحة
-                  الإنسانية، مصدراً أساسياً للهواء النقي الذي يغذي رئتينا ويحمي
-                  أجسادنا. الأشجار ليست مجرد زينة خضراء؛ إنها مصانع طبيعية تحول
-                  ثاني أكسيد الكربون إلى أكسجين نقي.
-                </p>
-                <p>
-                  لكن التهديد يلوح في الأفق: قطع الأشجار وحرق الغابات لإنتاج
-                  الفحم التقليدي يدمر هذا التوازن. كل شجرة تُقطع تعني فقداناً
-                  لكيلومترات مكعبة من الأكسجين سنوياً.
-                </p>
+                <p>{t("paragraph1")}</p>
+                <p>{t("paragraph2")}</p>
               </div>
             </motion.div>
 
@@ -48,24 +42,21 @@ export default function About() {
               className="p-8 border-r-4 border-red bg-black-600/50 backdrop-blur-sm rounded-lg shadow-lg"
             >
               <h4 className="text-orange font-bold text-2xl mb-4">
-                فحم الخشب المضغوط: الثورة البيئية
+                {t("highlightTitle")}
               </h4>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                يُعاد تدوير نفايات الأشجار – مثل نشارة الخشب والقشور – إلى فحم
-                عالي الجودة دون الحاجة لقطع أشجار جديدة. هذه التقنية تحول
-                النفايات إلى ثروة، محافظة على الغطاء النباتي ومقللة من انبعاثات
-                الكربون بنسبة تصل إلى 80%.
+                {t("highlightText")}
               </p>
 
               {/* Key Stats */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-black-700/60 p-4 rounded-lg text-center">
-                  <span className="text-3xl font-bold text-orange block">80%</span>
-                  <span className="text-white/80 text-sm">تقليل انبعاثات الكربون</span>
+                  <span className="text-3xl font-bold text-orange block">{t("stat1Value")}</span>
+                  <span className="text-white/80 text-sm">{t("stat1Label")}</span>
                 </div>
                 <div className="bg-black-700/60 p-4 rounded-lg text-center">
-                  <span className="text-3xl font-bold text-orange block">100%</span>
-                  <span className="text-white/80 text-sm">طبيعي وصديق للبيئة</span>
+                  <span className="text-3xl font-bold text-orange block">{t("stat2Value")}</span>
+                  <span className="text-white/80 text-sm">{t("stat2Label")}</span>
                 </div>
               </div>
             </motion.div>
@@ -84,13 +75,10 @@ export default function About() {
             className="text-center max-w-4xl mx-auto"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-orange mb-6">
-              في سوريا، تقود شركة Glow Coal هذه الثورة
+              {t("companyTitle")}
             </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              باستيراد فحم Sawdust Charcoal عالي الجودة، متاحاً الآن للجميع. هذا
-              المنتج ليس مجرد وقود؛ إنه تجربة شواء فاخرة تلبي معايير كبار الطهاة
-              والمطاعم الكبرى. خالٍ من الشوائب والدخان والرائحة، يشتعل بدون شرار
-              ويحافظ على حرارة ثابتة.
+              {t("companyDescription")}
             </p>
           </motion.div>
         </div>

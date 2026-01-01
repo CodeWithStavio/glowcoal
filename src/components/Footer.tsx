@@ -2,22 +2,26 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-
-const quickLinks = [
-  { href: "#home", label: "الرئيسية" },
-  { href: "#services", label: "منتجاتنا" },
-  { href: "#about", label: "من نحن" },
-  { href: "#stats", label: "إنجازاتنا" },
-];
-
-const products = [
-  "فحم للمطاعم",
-  "فحم للشواء",
-  "فحم بالجملة",
-  "فحم للتصدير",
-];
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+  const headerT = useTranslations("header");
+
+  const quickLinks = [
+    { href: "#home", label: headerT("home") },
+    { href: "#services", label: headerT("products") },
+    { href: "#about", label: headerT("about") },
+    { href: "#stats", label: headerT("achievements") },
+  ];
+
+  const products = [
+    t("products.restaurant"),
+    t("products.bbq"),
+    t("products.wholesale"),
+    t("products.export"),
+  ];
+
   return (
     <footer id="contact" className="relative">
       {/* Main Footer - Split Panel Layout */}
@@ -49,9 +53,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-gray-300 mb-8 leading-relaxed text-lg max-w-md">
-              نحن موردين فحم مضغوط عالي الجودة من كبرى شركات الإنتاج العالمية
-              بكميات كبيرة وثابتة. فحم مصنع من أجود أنواع الخشب الصلب ذو محتوى
-              كربوني عالي ووقت احتراق طويل.
+              {t("companyDescription")}
             </p>
 
             {/* Contact Info */}
@@ -136,7 +138,7 @@ export default function Footer() {
             >
               {/* Quick Links */}
               <div>
-                <h3 className="text-xl font-bold text-white mb-6">روابط مفيدة</h3>
+                <h3 className="text-xl font-bold text-white mb-6">{t("usefulLinks")}</h3>
                 <div className="underline-orange mb-6" />
                 <ul className="space-y-3">
                   {quickLinks.map((link) => (
@@ -154,7 +156,7 @@ export default function Footer() {
 
               {/* Products */}
               <div>
-                <h3 className="text-xl font-bold text-white mb-6">منتجاتنا</h3>
+                <h3 className="text-xl font-bold text-white mb-6">{t("ourProducts")}</h3>
                 <div className="underline-orange mb-6" />
                 <ul className="space-y-3">
                   {products.map((product) => (
@@ -169,7 +171,7 @@ export default function Footer() {
 
               {/* Social & Contact */}
               <div>
-                <h3 className="text-xl font-bold text-white mb-6">تابعنا</h3>
+                <h3 className="text-xl font-bold text-white mb-6">{t("followUs")}</h3>
                 <div className="underline-orange mb-6" />
 
                 <div className="flex flex-wrap gap-3 mb-6">
@@ -259,9 +261,9 @@ export default function Footer() {
                 </div>
 
                 <p className="text-white/70 text-sm">
-                  دردشة مباشرة عبر واتساب
+                  {t("whatsappChat")}
                   <br />
-                  اتصال مباشر للاستفسارات
+                  {t("directCall")}
                 </p>
               </div>
             </motion.div>
@@ -274,10 +276,10 @@ export default function Footer() {
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} GlowCoal. جميع الحقوق محفوظة.
+              © {new Date().getFullYear()} GlowCoal. {t("copyright")}.
             </p>
             <p className="text-gray-400 text-sm">
-              Made by <a href="https://coddra.com" target="_blank" rel="noopener noreferrer" className="text-orange hover:text-white transition-colors">Coddra Ltd.</a>
+              {t("madeBy")} <a href="https://coddra.com" target="_blank" rel="noopener noreferrer" className="text-orange hover:text-white transition-colors">Coddra Ltd.</a>
             </p>
           </div>
         </div>

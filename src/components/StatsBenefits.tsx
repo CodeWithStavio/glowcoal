@@ -1,27 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const benefits = [
-  {
-    title: "حماية الصحة",
-    description: "يقلل التلوث الهوائي، مما يدعم صحة مستدامة ويخفض التكاليف الطبية.",
-  },
-  {
-    title: "توفير طاقة فعال",
-    description: "احتراق طويل الأمد يعني استهلاكاً أقل وتوفيراً مالياً يصل إلى 30-40%.",
-  },
-  {
-    title: "اقتصاد أخضر",
-    description: "يعيد تدوير النفايات، يخلق فرص عمل، ويحافظ على موارد الغابات.",
-  },
-  {
-    title: "جودة فائقة",
-    description: "يُفضله الشيفات لنقائه، مما يرفع قيمة الوجبات في المطاعم والمنازل.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function StatsBenefits() {
+  const t = useTranslations("stats");
+
+  const benefits = [
+    {
+      title: t("benefits.health.title"),
+      description: t("benefits.health.description"),
+    },
+    {
+      title: t("benefits.energy.title"),
+      description: t("benefits.energy.description"),
+    },
+    {
+      title: t("benefits.economy.title"),
+      description: t("benefits.economy.description"),
+    },
+    {
+      title: t("benefits.quality.title"),
+      description: t("benefits.quality.description"),
+    },
+  ];
+
   return (
     <div className="split-panel relative">
       {/* Orange Panel with benefits - transparent to show wrapper's map */}
@@ -34,7 +37,7 @@ export default function StatsBenefits() {
           className="relative z-10"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
-            فوائد اقتصادية وبيئية لا تُقاوم
+            {t("title")}
           </h3>
           <div className="underline-orange mb-8" />
 
@@ -77,15 +80,13 @@ export default function StatsBenefits() {
       >
         <div className="text-center lg:text-right">
           <h3 className="text-2xl md:text-3xl font-bold text-red mb-6">
-            الخيار الأمثل في سوريا
+            {t("panelTitle")}
           </h3>
           <p className="text-gray-300 text-lg leading-relaxed mb-8">
-            بات Glow Coal الخيار الأمثل في سوريا لمن يهتم بالبيئة والجودة،
-            تحولاً من الاستهلاك التقليدي إلى نموذج اقتصادي بيئي مربح.
+            {t("panelDescription1")}
           </p>
           <p className="text-gray-300 text-lg leading-relaxed mb-8">
-            سواء كنت تستضيف حفلة شواء في الحديقة، أو تدير مطعمًا، نوفر لك أداءً
-            نظيفًا دون تنازل عن الطعم. طلبيات بالجملة مرحباً بكم - توصيل مجاني!
+            {t("panelDescription2")}
           </p>
 
           <motion.a
@@ -94,7 +95,7 @@ export default function StatsBenefits() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
-            اطلب الآن
+            {t("orderNow")}
           </motion.a>
         </div>
       </motion.div>
