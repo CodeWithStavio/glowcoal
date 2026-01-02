@@ -247,7 +247,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, type: "spring" }}
-                className="space-y-2"
+                className="space-y-6"
               >
                 {verticalTextWords.map((text, i) => (
                   <motion.span
