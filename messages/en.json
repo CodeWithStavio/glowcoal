@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "GlowCoal | 100% Natural Compressed Charcoal",
-    "description": "GlowCoal - 100% natural sawdust charcoal. High-quality compressed charcoal with no chemicals, no smoke, no odor. Perfect for restaurants, BBQ, and outdoor use.",
-    "ogDescription": "100% Natural sawdust charcoal - No chemicals, no smoke, no odor"
+    "title": "GlowCoal | Sawdust Charcoal & Shisha Charcoal",
+    "description": "GlowCoal - A leader in importing and distributing high-quality Sawdust Charcoal and Shisha charcoal. 100% natural eco-friendly charcoal.",
+    "ogDescription": "100% Natural sawdust charcoal - Eco-friendly - High quality"
   },
   "header": {
     "home": "Home",
@@ -12,30 +12,44 @@
     "contact": "Contact Us"
   },
   "hero": {
-    "title": "The Environmental & Economic Revolution",
-    "subtitle": "Eco-friendly charcoal made from recycled wood waste",
+    "title": "Discover the New Generation of BBQ Charcoal",
+    "subtitle": "Higher efficiency, advanced performance, innovative solutions and clean energy leading the future towards an eco-friendly society",
     "discoverProducts": "Discover Products",
     "contactUs": "Contact Us"
   },
   "about": {
     "sectionLabel": "About Us",
-    "title": "The Importance of Environment & Vegetation",
-    "paragraph1": "In a world where life moves fast, vegetation remains the pillar of human health, a primary source of clean air that nourishes our lungs and protects our bodies. Trees are not just green decoration; they are natural factories that convert carbon dioxide into pure oxygen.",
-    "paragraph2": "But a threat looms on the horizon: cutting trees and burning forests for traditional charcoal production destroys this balance. Every tree cut means losing cubic kilometers of oxygen annually.",
-    "highlightTitle": "Compressed Wood Charcoal: The Environmental Revolution",
-    "highlightText": "Tree waste – such as sawdust and bark – is recycled into high-quality charcoal without the need to cut new trees. This technology transforms waste into wealth, preserving vegetation and reducing carbon emissions by up to 80%.",
-    "stat1Value": "80%",
-    "stat1Label": "Carbon Emission Reduction",
-    "stat2Value": "100%",
-    "stat2Label": "Natural & Eco-Friendly",
-    "companyTitle": "In Syria, Glow Coal leads this revolution",
-    "companyDescription": "By importing high-quality Sawdust Charcoal, now available to everyone. This product is not just fuel; it's a premium BBQ experience that meets the standards of top chefs and major restaurants. Free from impurities, smoke, and odor, it ignites without sparks and maintains consistent heat."
+    "title": "Glow Coal Company",
+    "paragraph1": "We are Glow Coal, a leader in importing and distributing high-quality Sawdust Charcoal and Shisha (hookah) charcoal. Our company was founded on a solid foundation: bridging the gap between the best eco-friendly charcoal producers in East Asia and our local and global markets.",
+    "paragraph2": "We operate with a strategic vision based on long-term partnerships with major global producers to ensure sustainable and reliable supply chains and to stay at the forefront of all innovations in this field.",
+    "highlightTitle": "Comprehensive Quality Assurance",
+    "highlightText": "Our quality journey begins with the selection of raw materials, passes through rigorous tests to verify technical and performance specifications, and concludes with packaging, shipping, and storage processes that preserve the product in its optimal condition.",
+    "stat1Value": "100%",
+    "stat1Label": "Natural & Eco-Friendly",
+    "stat2Value": "+6",
+    "stat2Label": "Hours of Continuous Burn",
+    "companyTitle": "Our Core Values",
+    "companyDescription": "We are driven by three fundamental principles: Sustainability through an eco-friendly product, Health by providing a cleaner and safer alternative for the consumer, and Customer Satisfaction by making the experience of dealing with us a benchmark for excellence and trust.",
+    "innovationTitle": "Service Innovation",
+    "innovationText": "We are committed to providing innovative logistical and commercial solutions that ensure our products reach the end consumer through organized and effective distribution channels."
+  },
+  "sawdust": {
+    "title": "What is Sawdust Charcoal?",
+    "subtitle": "Sawdust Charcoal",
+    "features": {
+      "natural": "100% natural eco-friendly charcoal",
+      "shape": "Uniform hexagonal shape and size",
+      "burnTime": "Burns for over 6 hours",
+      "carbon": "High carbon content with consistent heat throughout",
+      "safe": "Safe burning without flying sparks",
+      "clean": "No odor and no smoke"
+    }
   },
   "services": {
     "sectionLabel": "Our Services",
     "title": "We Import Various Types of Compressed Charcoal",
-    "heroTitle": "The Environmental & Economic Revolution",
-    "heroSubtitle": "Eco-friendly charcoal made from recycled wood waste",
+    "heroTitle": "Discover the New Generation of BBQ Charcoal",
+    "heroSubtitle": "Higher efficiency, advanced performance, innovative solutions",
     "readMore": "Read More",
     "highQuality": "High Quality",
     "productsAlt": "Our Products",
@@ -50,20 +64,20 @@
     },
     "cards": {
       "manufacturing": {
-        "title": "Manufacturing",
-        "description": "Compressed charcoal made from the finest hardwood with high carbon content and long burning time."
+        "title": "Sawdust Charcoal",
+        "description": "100% natural eco-friendly charcoal with uniform hexagonal shape, safe burning without flying sparks."
       },
       "supply": {
-        "title": "Supply",
-        "description": "We import various types of compressed charcoal from the best global companies in large and consistent quantities."
+        "title": "Shisha Charcoal",
+        "description": "We import the best shisha charcoal from major global companies in East Asia with high quality and competitive prices."
       },
       "quality": {
-        "title": "Quality",
-        "description": "High fixed carbon (over 90%) ensures strong and consistent heat with low ash."
+        "title": "Quality Assurance",
+        "description": "Every shipment undergoes strict quality inspections to ensure maximum performance and efficiency with high carbon and stable heat."
       },
       "globalImport": {
         "title": "Global Import",
-        "description": "We import from around the world to provide you with the finest charcoal at the best prices."
+        "description": "We seek permanent suppliers to maintain supply chains, diversify sources, and search for everything new."
       }
     },
     "products": {
@@ -76,17 +90,17 @@
         "subtitle": "The preferred choice for professionals"
       },
       "global": {
-        "title": "We Import from Around the World",
+        "title": "We Import from East Asia",
         "subtitle": "Trusted global partnerships"
       }
     },
     "features": {
-      "noChemicals": "No Chemicals",
+      "noChemicals": "100% Natural",
       "noSmoke": "No Smoke",
       "noOdor": "No Odor",
-      "longBurn": "Long Burn",
+      "longBurn": "+6 Hours Burn",
       "stableHeat": "Stable Heat",
-      "lowAsh": "Low White Ash"
+      "lowAsh": "No Sparks"
     }
   },
   "video": {
@@ -94,44 +108,44 @@
     "title": "Experience Glow Coal",
     "contentTitle": "Discover Premium Charcoal Quality",
     "description": "See how Glow Coal provides an exceptional BBQ experience. Compressed sawdust charcoal delivers even and sustainable heat, without smoke or unpleasant odors, making it the perfect choice for restaurants and homes alike.",
-    "badge": "We import charcoal from around the world",
+    "badge": "We import charcoal from East Asia",
     "orderNow": "Order Now",
     "learnProducts": "Learn About Our Products",
     "features": {
       "feature1": "100% Natural sawdust charcoal",
       "feature2": "No chemicals or odors",
-      "feature3": "Consistent heat for 5-6 hours",
+      "feature3": "Consistent heat for over 6 hours",
       "feature4": "Eco-friendly & sustainable"
     }
   },
   "stats": {
-    "title": "Irresistible Economic & Environmental Benefits",
-    "panelTitle": "The Optimal Choice in Syria",
-    "panelDescription1": "Glow Coal has become the optimal choice in Syria for those who care about the environment and quality, transitioning from traditional consumption to a profitable eco-economic model.",
-    "panelDescription2": "Whether you're hosting a backyard BBQ party or running a restaurant, we provide clean performance without compromising taste. Bulk orders welcome - free delivery!",
+    "title": "For Sustainable Health and a Clean Environment",
+    "panelTitle": "Our Visual Identity",
+    "panelDescription1": "A new beginning requires creative and innovative vision. Today we launch our visual identity for Glow Coal, inspired by sustainability, recycling, and environmental preservation.",
+    "panelDescription2": "We chose red as a symbol of strength and energy, while black represents elegance. The two colors come together in complex connotations reflecting our vision to deliver an energy-rich product in a civilized and elegant style.",
     "orderNow": "Order Now",
     "benefits": {
       "health": {
-        "title": "Health Protection",
-        "description": "Reduces air pollution, supporting sustainable health and lowering medical costs."
+        "title": "Health",
+        "description": "Providing a cleaner and safer alternative for the consumer with an eco-friendly product."
       },
       "energy": {
-        "title": "Efficient Energy Savings",
-        "description": "Long-lasting burn means less consumption and financial savings of up to 30-40%."
+        "title": "Sustainability",
+        "description": "Environmental commitment through an eco-friendly product that preserves natural resources."
       },
       "economy": {
-        "title": "Green Economy",
-        "description": "Recycles waste, creates jobs, and preserves forest resources."
+        "title": "Customer Satisfaction",
+        "description": "Making the experience of dealing with us a benchmark for excellence and trust every time."
       },
       "quality": {
         "title": "Superior Quality",
-        "description": "Preferred by chefs for its purity, elevating meal value in restaurants and homes."
+        "description": "We supply high-quality charcoal from type selection and quality verification to packaging and shipping."
       }
     }
   },
   "cta": {
     "title": "Need high-quality charcoal at affordable prices?",
-    "description": "Upgrade your BBQ experience - choose Glow Coal compressed sawdust charcoal made from the finest hardwood. Competitive prices for everyone!",
+    "description": "We consider your valuable cooperation and feedback an essential part of our journey towards continuous development and the constant enhancement of our product and service quality. Thank you for being part of our journey!",
     "whatsapp": "Contact via WhatsApp",
     "call": "Call Us",
     "freeDelivery": "Free Delivery",
@@ -139,7 +153,7 @@
     "qualityGuaranteed": "Quality Guaranteed"
   },
   "footer": {
-    "companyDescription": "We are suppliers of high-quality compressed charcoal from major global production companies in large and consistent quantities. Charcoal made from the finest hardwood with high carbon content and long burning time.",
+    "companyDescription": "Glow Coal is a leader in importing and distributing high-quality Sawdust Charcoal and Shisha charcoal. We bridge the gap between the best eco-friendly charcoal producers in East Asia and our local and global markets.",
     "usefulLinks": "Useful Links",
     "ourProducts": "Our Products",
     "followUs": "Follow Us",
@@ -151,7 +165,7 @@
       "restaurant": "Restaurant Charcoal",
       "bbq": "BBQ Charcoal",
       "wholesale": "Wholesale Charcoal",
-      "export": "Export Charcoal"
+      "shisha": "Shisha Charcoal"
     }
   },
   "languageSwitcher": {
