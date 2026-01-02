@@ -242,29 +242,18 @@ export default function Services() {
           {/* Vertical Text Sidebar */}
           <div className="hidden lg:flex w-[180px] bg-black-700 items-center justify-center relative min-h-[800px]">
             <div className="vertical-text">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, type: "spring" }}
-                className="space-y-6"
-              >
+              <div className="space-y-10">
                 {verticalTextWords.map((text, i) => (
-                  <motion.span
+                  <span
                     key={text}
                     className={`text-4xl font-bold block ${
                       i % 3 === 0 ? "text-red" : i % 3 === 1 ? "text-white" : "text-orange"
                     }`}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.15, duration: 0.6, type: "spring" }}
-                    whileHover={{ scale: 1.1, textShadow: "0 0 20px currentColor" }}
                   >
                     {text}
-                  </motion.span>
+                  </span>
                 ))}
-              </motion.div>
+              </div>
             </div>
 
           </div>
