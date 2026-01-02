@@ -267,30 +267,6 @@ export default function Services() {
               </motion.div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -100, rotate: -10 }}
-              whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, type: "spring", stiffness: 60 }}
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              className="overlap-image left-full top-1/4 w-[350px] h-[450px] -translate-x-1/2 overflow-hidden shadow-2xl"
-            >
-              <Image
-                src="/images/charcoal-factory.webp"
-                alt={t("charcoalAlt")}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black-700/80 to-transparent" />
-              <div className="absolute bottom-4 right-4 left-4">
-                <motion.span
-                  className="bg-red text-white px-3 py-1 rounded text-sm font-bold inline-block"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {t("highQuality")}
-                </motion.span>
-              </div>
-            </motion.div>
           </div>
 
           {/* Services Cards Grid */}
