@@ -351,8 +351,12 @@ a[href^="https://wa.me"],
 
 .vertical-text span {
   transition: all 0.3s ease;
-  display: inline-block;
-  margin-left: 2.5rem; /* spacing between words in vertical mode */
+  display: block;
+  margin-left: 4rem; /* spacing between words in vertical mode */
+}
+
+.vertical-text span:first-child {
+  margin-left: 0;
 }
 
 .vertical-text span:hover {
