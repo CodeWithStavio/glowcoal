@@ -351,6 +351,7 @@ a[href^="https://wa.me"],
 .vertical-text > div {
   display: flex;
   gap: 2rem;
+  align-items: flex-start;
 }
 
 /* ========================================
