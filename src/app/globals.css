@@ -341,16 +341,16 @@ a[href^="https://wa.me"],
 }
 
 /* ========================================
-   VERTICAL TEXT STYLING - with animation
+   VERTICAL TEXT STYLING
    ======================================== */
 .vertical-text {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
+  transform: rotate(-90deg);
+  white-space: nowrap;
 }
 
-.vertical-text span {
-  margin-bottom: 3rem;
+.vertical-text > div {
+  display: flex;
+  gap: 2rem;
 }
 
 /* ========================================
