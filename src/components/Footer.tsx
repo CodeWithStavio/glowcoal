@@ -19,7 +19,7 @@ export default function Footer() {
     t("products.restaurant"),
     t("products.bbq"),
     t("products.wholesale"),
-    t("products.export"),
+    t("products.shisha"),
   ];
 
   return (

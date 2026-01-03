@@ -241,11 +241,11 @@ export default function Services() {
           {/* Vertical Text Sidebar */}
           <div className="hidden lg:flex w-[180px] bg-black-700 items-center justify-center relative min-h-[800px]">
             <div className="vertical-text">
-              <div className="space-y-10">
+              <div>
                 {verticalTextWords.map((text, i) => (
                   <span
                     key={text}
-                    className={`text-4xl font-bold block ${
+                    className={`text-4xl font-bold ${
                       i % 3 === 0 ? "text-red" : i % 3 === 1 ? "text-white" : "text-orange"
                     }`}
                   >
