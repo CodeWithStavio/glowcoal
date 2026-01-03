@@ -137,7 +137,6 @@ export default function Services() {
     t("verticalText.word3"),
     t("verticalText.word4"),
     t("verticalText.word5"),
-    t("verticalText.word6"),
   ];
 
   const features = [
