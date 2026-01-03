@@ -349,19 +349,14 @@ a[href^="https://wa.me"],
   transform: rotate(180deg);
 }
 
+.vertical-text > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 .vertical-text span {
-  transition: all 0.3s ease;
-  display: block;
-  margin-left: 4rem; /* spacing between words in vertical mode */
-}
-
-.vertical-text span:first-child {
-  margin-left: 0;
-}
-
-.vertical-text span:hover {
-  transform: scale(1.1);
-  text-shadow: 0 0 20px currentColor;
+  display: inline-block;
 }
 
 /* ========================================
