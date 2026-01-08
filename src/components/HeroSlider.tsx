@@ -2,16 +2,21 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function HeroSlider() {
   const t = useTranslations("hero");
 
   return (
     <section id="home" className="relative h-screen max-h-[900px] min-h-[600px] bg-black-700 overflow-hidden">
-      {/* Subtle ambient glow */}
+      {/* Arch gradient from bottom reaching up to logo */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[120px]" />
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[500px] rounded-t-full blur-[80px]"
+          style={{
+            background: 'radial-gradient(ellipse at bottom, rgba(220, 38, 38, 0.2) 0%, transparent 70%)'
+          }}
+        />
       </div>
 
       {/* Content */}
@@ -23,18 +28,21 @@ export default function HeroSlider() {
             transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
             className="text-center"
           >
-            {/* Logo placeholder for future */}
+            {/* Logo */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-8"
             >
-              {/* Future logo will go here */}
-              <span className="text-6xl md:text-8xl font-bold">
-                <span className="text-orange">Glow</span>
-                <span className="text-white">Coal</span>
-              </span>
+              <Image
+                src="/logos/logo.png"
+                alt="GlowCoal"
+                width={400}
+                height={150}
+                className="h-32 md:h-44 lg:h-52 w-auto mx-auto"
+                priority
+              />
             </motion.div>
 
             <motion.h1

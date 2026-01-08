@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -89,15 +90,20 @@ export default function Header() {
           </motion.ul>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl md:text-3xl font-bold"
             >
-              <span className="text-orange">Glow</span>
-              <span className="text-white">Coal</span>
+              <Image
+                src="/logos/logo.png"
+                alt="GlowCoal"
+                width={200}
+                height={80}
+                className="h-16 md:h-20 w-auto"
+                priority
+              />
             </motion.div>
           </Link>
 

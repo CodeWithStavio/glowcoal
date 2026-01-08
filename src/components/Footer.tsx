@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export default function Footer() {
@@ -46,10 +47,13 @@ export default function Footer() {
           >
             {/* Logo */}
             <Link href="/" className="inline-block mb-8">
-              <span className="text-4xl font-bold">
-                <span className="text-orange">Glow</span>
-                <span className="text-white">Coal</span>
-              </span>
+              <Image
+                src="/logos/logo.png"
+                alt="GlowCoal"
+                width={560}
+                height={200}
+                className="h-56 md:h-64 w-auto"
+              />
             </Link>
 
             <p className="text-gray-300 mb-8 leading-relaxed text-lg max-w-md">
