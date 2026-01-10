@@ -29,7 +29,7 @@ export default function Footer() {
       <div className="footer-split min-h-[500px]">
           {/* Black Panel - Company Info (Right side in RTL) */}
           <motion.div
-            className="bg-black-700 py-16 px-8 lg:px-12 flex items-center order-1 lg:order-2 lg:-ml-20 relative z-20"
+            className="bg-black-700 py-16 px-8 lg:px-12 flex items-center order-1 lg:order-2 rtl:lg:-ml-20 ltr:lg:-mr-20 relative z-20"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

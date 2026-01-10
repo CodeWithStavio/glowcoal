@@ -69,7 +69,7 @@ export default function StatsBenefits() {
 
       {/* Black Panel - Overlapping with premium shadow */}
       <motion.div
-        className="bg-black-700 py-16 px-8 lg:px-16 lg:-mr-24 relative z-10 flex items-center"
+        className="bg-black-700 py-16 px-8 lg:px-16 rtl:lg:-mr-24 ltr:lg:-ml-24 relative z-10 flex items-center"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -78,7 +78,7 @@ export default function StatsBenefits() {
           boxShadow: '-40px 0 80px rgba(0, 0, 0, 0.4), -10px 0 30px rgba(0, 0, 0, 0.3)'
         }}
       >
-        <div className="text-center lg:text-right">
+        <div className="text-center lg:rtl:text-right lg:ltr:text-left">
           <h3 className="text-2xl md:text-3xl font-bold text-red mb-6">
             {t("panelTitle")}
           </h3>

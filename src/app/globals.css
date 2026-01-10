@@ -23,13 +23,23 @@ body {
   font-family: "Cairo", sans-serif;
   background-color: var(--black);
   color: #ffffff;
-  direction: rtl;
-  text-align: right;
   /* Disable text selection site-wide */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/* RTL direction for Arabic */
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* LTR direction for English */
+[dir="ltr"] body {
+  direction: ltr;
+  text-align: left;
 }
 
 /* Allow text selection on contact/communication elements */
@@ -300,6 +310,7 @@ a[href^="https://wa.me"],
   display: grid;
   grid-template-columns: 1fr;
   position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {
@@ -332,6 +343,7 @@ a[href^="https://wa.me"],
 .footer-split {
   display: grid;
   grid-template-columns: 1fr;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {

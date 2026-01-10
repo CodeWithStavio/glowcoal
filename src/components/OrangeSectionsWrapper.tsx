@@ -20,7 +20,7 @@ interface OrangeSectionsWrapperProps {
  */
 export default function OrangeSectionsWrapper({ children }: OrangeSectionsWrapperProps) {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       {/* Single World Map Background - red for 20% color distribution */}
       <div className="absolute inset-0 bg-red overflow-hidden pointer-events-none">
         <div className="absolute inset-0 opacity-40">

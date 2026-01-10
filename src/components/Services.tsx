@@ -46,6 +46,7 @@ const productCardVariants = {
 
 export default function Services() {
   const t = useTranslations("services");
+  const heroT = useTranslations("hero");
   const [activeSlide, setActiveSlide] = useState(0);
 
   const services = [
@@ -151,7 +152,7 @@ export default function Services() {
   return (
     <section id="services" className="relative">
       {/* Hero Image Slider Section */}
-      <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <div className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -203,23 +204,37 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, type: "spring" }}
-            className="text-center"
+            className="text-center px-4"
           >
             <motion.h2
-              className="text-4xl md:text-6xl font-bold text-white mb-4"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
               animate={{ textShadow: ["0 0 20px rgba(249,115,22,0)", "0 0 40px rgba(249,115,22,0.5)", "0 0 20px rgba(249,115,22,0)"] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              {t("heroTitle")}
+              {heroT("title")}
             </motion.h2>
             <motion.p
-              className="text-orange text-xl md:text-2xl"
+              className="text-orange text-xl md:text-2xl max-w-2xl mx-auto mb-8"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              {t("heroSubtitle")}
+              {heroT("subtitle")}
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <a href="#services" className="btn-red">
+                {heroT("discoverProducts")}
+              </a>
+              <a href="#contact" className="btn-outline-orange">
+                {heroT("contactUs")}
+              </a>
+            </motion.div>
           </motion.div>
         </div>
 
