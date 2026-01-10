@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
+import Logo from "./Logo";
 
 export default function HeroSlider() {
   const t = useTranslations("hero");
@@ -33,23 +33,16 @@ export default function HeroSlider() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-8"
+              className="-mb-12 md:-mb-16 lg:-mb-20"
             >
-              <Image
-                src="/logos/logo.png"
-                alt="GlowCoal"
-                width={400}
-                height={150}
-                className="h-32 md:h-44 lg:h-52 w-auto mx-auto"
-                priority
-              />
+              <Logo className="h-72 md:h-96 lg:h-[32rem] w-auto mx-auto" />
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-0"
             >
               {t("title")}
             </motion.h1>
@@ -58,7 +51,7 @@ export default function HeroSlider() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-2xl text-orange mb-12 max-w-2xl mx-auto"
+              className="text-xl md:text-2xl text-orange mt-4 mb-6 max-w-2xl mx-auto"
             >
               {t("subtitle")}
             </motion.p>
@@ -85,25 +78,6 @@ export default function HeroSlider() {
         <div className="depth-strip"></div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 border-2 border-orange/60 rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 h-3 bg-orange rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

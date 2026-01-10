@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
@@ -96,14 +96,7 @@ export default function Header() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Image
-                src="/logos/logo.png"
-                alt="GlowCoal"
-                width={200}
-                height={80}
-                className="h-16 md:h-20 w-auto"
-                priority
-              />
+              <Logo className="h-16 md:h-20 w-auto" />
             </motion.div>
           </Link>
 
