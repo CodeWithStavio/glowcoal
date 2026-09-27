@@ -174,7 +174,7 @@ export default function Footer() {
 
                 <div className="flex flex-wrap gap-3 mb-6">
                   <a
-                    href="https://instagram.com/glowcoal"
+                    href="https://www.instagram.com/glow_coal?stkn=MWZoZWd6aWJsYjEzdA=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 flex items-center justify-center text-white hover:text-orange transition-colors"
@@ -189,7 +189,7 @@ export default function Footer() {
                     </svg>
                   </a>
                   <a
-                    href="https://facebook.com/glowcoal"
+                    href="https://www.facebook.com/share/1DYvArU8oz/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 flex items-center justify-center text-white hover:text-orange transition-colors"
